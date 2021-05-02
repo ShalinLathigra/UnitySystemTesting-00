@@ -9,7 +9,7 @@ public class Engine : MonoBehaviour
 
     public Player player;
 
-    public float groundSnapDistance = 0.2f;
+    public float maxFallSpeed = -100.0f;
 
     private void Awake() {
         if (_e != null && _e != this)

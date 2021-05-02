@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numRaysX: 8
   numRaysY: 4
-  skinWidth: 0.2
-  hitDistance: 1
+  skinWidth: 0.1
+  hitDistance: 5
+  maxGroundDistance: 0.24

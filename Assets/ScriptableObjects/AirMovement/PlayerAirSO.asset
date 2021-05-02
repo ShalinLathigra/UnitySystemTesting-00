@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b405029fb0015c43b2962f55625b52a, type: 3}
+  m_Name: PlayerAirSO
+  m_EditorClassIdentifier: 
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.006134
+      inSlope: 0.013459968
+      outSlope: 0.013459968
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.17351119
+    - serializedVersion: 3
+      time: 0.50133514
+      value: -0.0037715202
+      inSlope: -5.541288
+      outSlope: -5.541288
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03974809
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  longFallCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.30130938
+      outSlope: 0.30130938
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.065656565
+    - serializedVersion: 3
+      time: 0.9976592
+      value: 1.0023689
+      inSlope: 2.2974188
+      outSlope: 2.2974188
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.045454565
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shortFallCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.29907227
+      value: 1
+      inSlope: 5.3751884
+      outSlope: 5.3751884
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11008291
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxAirSpeed: 4
+  maxJumpSpeed: 3
+  moveTransition: 0.25

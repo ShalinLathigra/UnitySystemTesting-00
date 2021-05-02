@@ -9,4 +9,5 @@ public class SpatialAwarenessSO : ScriptableObject
     public int numRaysY;
     public float skinWidth;
     public float hitDistance;
+    public float maxGroundDistance;
 }

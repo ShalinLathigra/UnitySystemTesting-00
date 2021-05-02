@@ -7,24 +7,26 @@ public class BehaviourStateMachine : MonoBehaviour
 {
     public bool active { get; set; }
     [HideInInspector] public BehaviourState state;
-    LinkedList<IBehaviourState> history;    // End is newest
+    LinkedList<BehaviourState> history;    // End is newest
 
     protected void Set(BehaviourState _state)
     {
         if (state == _state)
             return;
         else
-        {
-            if (state != null)
-                state.Exit();
-            state = _state;
-            state.Enter();
-        }
+            Set(_state, true);
     }
     
-    protected void Set(BehaviourState _state, BehaviourState _subState)
+    protected void Set(BehaviourState _state, bool overRide)
     {
-        Set(_state);
-        state.Set(_subState);
+        if (state != null)
+            state.Exit();
+        state = _state;
+        state.Enter();
+    }
+
+    public string GetStatePathString()
+    {
+        return GetType() + " -> " +  state?.GetStatePathString();
     }
 }
