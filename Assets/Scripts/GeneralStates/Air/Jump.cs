@@ -15,6 +15,7 @@ public class Jump : BehaviourState
     public override void Enter()
     {
         base.Enter();
+        core.audio.Play(audioSO);
     }
     
     public override void FixedDo()

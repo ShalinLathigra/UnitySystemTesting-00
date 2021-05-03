@@ -9,16 +9,17 @@ public abstract class Character : BehaviourStateMachine
     
     [SerializeField] protected InputWrapper inputWrapper;
     protected SpatialAwareness spatialAwareness;
+    protected AudioClipPlayer audioClipPlayer;
     public InputWrapper input { get{ return inputWrapper; } }
     public SpatialAwareness spatial {get { return spatialAwareness; } }
-
-    // has access to state because of BehaviourStateMachine
+    public new AudioClipPlayer audio { get { return audioClipPlayer; } }
     public BoxCollider2D box => spatial.box;
     public Rigidbody2D rb => spatial.rb;
 
     protected virtual void Awake() {
         // Cache Core components
         spatialAwareness = GetComponent<SpatialAwareness>();
+        audioClipPlayer = GetComponentInChildren<AudioClipPlayer>();
 
         // Update Core for child states
         BehaviourState[] childstates = GetComponentsInChildren<BehaviourState>();

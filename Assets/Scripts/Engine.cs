@@ -9,7 +9,7 @@ public class Engine : MonoBehaviour
 
     public Player player;
 
-    public float maxFallSpeed = -100.0f;
+    public float maxFallSpeed = -50.0f;
 
     private void Awake() {
         if (_e != null && _e != this)
