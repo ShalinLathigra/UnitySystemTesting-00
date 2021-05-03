@@ -58,9 +58,6 @@ public class SpatialAwareness : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        /* 
-        TODO: Run these commands ONLY if in EDITOR
-        */
         DetectGround();
         CalculateGroundNormal();
 
@@ -99,18 +96,19 @@ public class SpatialAwareness : MonoBehaviour
 
 
         Vector2 n;
-        bool isLocalMaxima = false;
 
         float leftMostDist = _groundNormals[0].Value;
         float rightMostDist = _groundNormals[_groundNormals.Count - 1].Value;
+        
+        bool isLocalMaxima = (_groundNormals[0].Key.x < 0) && (_groundNormals[_groundNormals.Count - 1].Key.x > 0);
 
+        //* Check if the left and rightmost normals face away from each other
         KeyValuePair<Vector2, float> nearestNormal = _groundNormals[0];
         for (int i = 1; i < _groundNormals.Count; i++)
         {
             nearestNormal = (_groundNormals[i].Value < nearestNormal.Value) ? _groundNormals[i] : nearestNormal;
-            isLocalMaxima |= (leftMostDist > _groundNormals[i].Value) && (rightMostDist > _groundNormals[i].Value);
         }
-
+        
         n = (!isLocalMaxima) ? nearestNormal.Key : Vector2.up;
         
         _groundNormal = n;
@@ -147,6 +145,7 @@ public class SpatialAwareness : MonoBehaviour
 
         if (dist <= saObject.hitDistance)
             _distanceToGround = dist;
+
         _grounded = collision;
         
         if (_grounded)
@@ -170,7 +169,7 @@ public class SpatialAwareness : MonoBehaviour
         if (debugGroundDetection)
             AddGroundDebugRay(rayOrigin, Vector2.down, hit);
         
-        return (hit.collider != null && hit.distance <= saObject.maxGroundDistance * 10.0f); // have a lot of tolerance. Only exit grounded if you're further than 1/2 tile away
+        return (hit.collider != null && hit.distance <= saObject.skinWidth); // have a lot of tolerance. Only exit grounded if you're further than 1/2 tile away
     }
 
     public void AddGroundDebugRay(Vector2 origin, Vector2 direction, RaycastHit2D hit)

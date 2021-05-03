@@ -10,11 +10,13 @@ public class Jump : BehaviourState
 
     private float completeTime = 0.0f;
     public bool extendedJump => (completeTime >= startTime + duration);
+    private bool canEndJump => Time.time - startTime > duration * 0.4f;
 
     public override void Enter()
     {
         base.Enter();
     }
+    
     public override void FixedDo()
     {
         core.rb.velocity = new Vector2(
@@ -22,7 +24,7 @@ public class Jump : BehaviourState
             jumpCurve.Evaluate(Time.time - startTime) * coreAir.maxJumpSpeed
             );
 
-        complete = (Time.time > (startTime + duration));
+        complete = (Time.time > (startTime + duration)) || (core.input.jumpCancelled && canEndJump);
     }
 
     public override void Exit()

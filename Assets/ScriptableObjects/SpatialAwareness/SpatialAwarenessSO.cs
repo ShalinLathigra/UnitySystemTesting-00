@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpatialAwarenessSO", menuName = "PrototypeProject/SpatialAwarenessSO")]
 public class SpatialAwarenessSO : ScriptableObject 
 {
+    [Range(3, 9)]
     public int numRaysX;
     public int numRaysY;
     public float skinWidth;

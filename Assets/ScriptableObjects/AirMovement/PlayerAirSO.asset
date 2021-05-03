@@ -17,21 +17,21 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.006134
-      inSlope: 0.013459968
-      outSlope: 0.013459968
+      value: 1.0037537
+      inSlope: -1.0641154
+      outSlope: -1.0641154
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.17351119
+      outWeight: 0.09654345
     - serializedVersion: 3
-      time: 0.50133514
-      value: -0.0037715202
-      inSlope: -5.541288
-      outSlope: -5.541288
+      time: 0.3011093
+      value: 0.003369593
+      inSlope: -7.5827565
+      outSlope: -7.5827565
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03974809
+      inWeight: 0.04835745
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -42,20 +42,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.30130938
-      outSlope: 0.30130938
+      inSlope: 0.71479577
+      outSlope: 0.71479577
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.065656565
+      outWeight: 0.08681672
     - serializedVersion: 3
-      time: 0.9976592
+      time: 0.5480625
       value: 1.0023689
-      inSlope: 2.2974188
-      outSlope: 2.2974188
+      inSlope: 3.033175
+      outSlope: 3.033175
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.045454565
+      inWeight: 0.047979783
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -66,24 +66,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 3.3470888
+      outSlope: 3.3470888
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.29907227
+      time: 0.2987671
       value: 1
-      inSlope: 5.3751884
-      outSlope: 5.3751884
-      tangentMode: 0
+      inSlope: 3.3470888
+      outSlope: 3.3470888
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.11008291
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxAirSpeed: 4
-  maxJumpSpeed: 3
-  moveTransition: 0.25
+  maxAirSpeed: 8.5
+  maxJumpSpeed: 10
+  moveTransition: 0.125

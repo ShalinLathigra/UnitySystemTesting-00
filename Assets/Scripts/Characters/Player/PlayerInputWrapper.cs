@@ -9,6 +9,7 @@ public class PlayerInputWrapper : InputWrapper
     * SUMMARY: Exposes input from the PlayerInput to other components
     TODO: Figure out what OTHER input I want available, expose it through here
     */
+    protected bool _jumpCancelled;
     protected bool _shouldMove;
     protected Vector2 _directionalInput;
 
@@ -20,6 +21,7 @@ public class PlayerInputWrapper : InputWrapper
     // How much leeway the player has
 
     public override bool shouldMove { get { return _shouldMove; } }
+    public override bool jumpCancelled { get { return _jumpCancelled; } }
     public override bool shouldJump     // Jump Buffering
     { 
         get { 
@@ -46,7 +48,14 @@ public class PlayerInputWrapper : InputWrapper
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!context.canceled)
+        {
             timeOfLastJumpInput = Time.time;
+            _jumpCancelled = false;
+        }
+        else
+        {
+            _jumpCancelled = true;
+        }
     }
 }

@@ -17,7 +17,9 @@ public class Move : BehaviourState
     public override void Enter()
     {
         base.Enter();
-        stateVelocity = new Vector2(core.rb.velocity.x, 0.0f);
+        
+        float derivedStart = math.abs((core.rb.velocity.x) / coreMove.maxSpeed);
+        startTime = derivedStart;
     }
     public override void FixedDo()
     {
