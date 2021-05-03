@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbf639ed7e7b534abe12f4c63c0cd3f, type: 3}
   m_Name: PlayerSpatialSO
   m_EditorClassIdentifier: 
-  numRaysX: 3
+  numRaysX: 6
   numRaysY: 4
   skinWidth: 0.1
-  hitDistance: 5
+  hitDistance: 0.32
   maxGroundDistance: 0.24
