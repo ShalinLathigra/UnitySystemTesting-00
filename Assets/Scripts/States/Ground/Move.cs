@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 
+using BStateMachine;
+
 /*
 * Summary: Move
 * This State is used by all objects moving SIDE TO SIDE

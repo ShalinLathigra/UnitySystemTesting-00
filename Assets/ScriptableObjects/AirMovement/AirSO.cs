@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AirSO", menuName = "PrototypeProject/AirSO")]
+[CreateAssetMenu(fileName = "AirSO", menuName = "PrototypeProject/CharacterSO/AirSO")]
 public class AirSO : ScriptableObject 
 {
     public AnimationCurve jumpCurve; 

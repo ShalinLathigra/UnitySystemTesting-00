@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using BStateMachine;
 public class Jump : BehaviourState
 {
     AirSO coreAir => ((IAirEntity)core).airSO;
