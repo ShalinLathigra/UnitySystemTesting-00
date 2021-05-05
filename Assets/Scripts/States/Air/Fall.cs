@@ -18,7 +18,7 @@ namespace States
             base.Enter();
             if (_fallCurve == null)
                 SetFall(true);
-            core.pixel.ApplySquashStretch(-0.25f, 1.0f, EasingFunction.Ease.EaseInQuad);
+            core.pixel.ApplySquashStretch(-0.3f, 0.75f, EasingFunction.Ease.Linear);
         }
 
         public void SetFall(bool longFall)
@@ -40,7 +40,8 @@ namespace States
         public override void Exit()
         {
             core.rb.velocity = new Vector2(core.rb.velocity.x, 0.0f);
-            core.pixel.AnimateResetSquash();
+            float squash = _fallCurve.Evaluate(Time.time - startTime) * 0.25f;
+            core.pixel.ApplySquashStretch(squash, 0.125f, EasingFunction.Ease.Linear);
         }
     }
 }
