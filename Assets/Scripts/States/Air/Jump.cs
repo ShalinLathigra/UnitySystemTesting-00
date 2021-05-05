@@ -18,7 +18,7 @@ namespace States
         {
             base.Enter();
             core.audio.Play(audioSO);
-            core.pixel.ApplySquashStretch( 0.25f, 0.125f, EasingFunction.Ease.Spring);
+            core.squash.ApplySquashStretch( 0.125f, 0.125f, EasingFunction.Ease.Spring);
         }
     
         public override void FixedDo()

@@ -10,25 +10,28 @@ namespace Characters.Base
     {
 
         [SerializeField] protected PixelAnimator pixelAnimator;
+        [SerializeField] protected SquashAnimator squashAnimator;
         [SerializeField] protected InputWrapper inputWrapper;
         public SpatialAwareness spatial { get; private set; }
         public new AudioClipPlayer audio { get; private set; }
 
         public InputWrapper input => inputWrapper;
         public PixelAnimator pixel => pixelAnimator;
+        public SquashAnimator squash => squashAnimator;
         public BoxCollider2D box => spatial.box;
         public Rigidbody2D rb => spatial.rb;
 
         protected virtual void Awake() {
             // Cache Core components
-            spatial = GetComponent<SpatialAwareness>();
-            audio = GetComponentInChildren<AudioClipPlayer>();
 
             // Update Core for child states
             BehaviourState[] childstates = GetComponentsInChildren<BehaviourState>();
             foreach (BehaviourState c in childstates) {
                 c.SetCharacter(this);
-            }    
+            }
+            
+            spatial = GetComponent<SpatialAwareness>();
+            audio = GetComponentInChildren<AudioClipPlayer>();
         }
 
         protected virtual void FixedUpdate() { state?.FixedDo(); }

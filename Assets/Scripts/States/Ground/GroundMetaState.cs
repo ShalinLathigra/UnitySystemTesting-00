@@ -33,10 +33,5 @@ namespace States
             }
             base.LateDo();
         }
-
-        public override void Exit()
-        {
-            state?.Exit();
-        }
     }
 }

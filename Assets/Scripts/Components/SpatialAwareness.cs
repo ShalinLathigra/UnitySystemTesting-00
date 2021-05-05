@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -18,15 +19,15 @@ namespace Components
         [SerializeField] private bool debugGroundDetection;
     
 
-        public BoxCollider2D box { get {return _box;} }
-        public Rigidbody2D rb { get {return _rb;} }
-        public float skinWidth { get { return saObject.skinWidth; } }
-        public float maxGroundDistance { get { return saObject.maxGroundDistance; } }
-        public bool grounded { get {return _grounded;} }
-        public List<KeyValuePair<Vector2, float>> groundNormals { get {return _groundNormals;} }
-        public Vector2 groundNormal { get {return _groundNormal;} }
-        public float distanceToGround { get {return _distanceToGround;} }
-        public float timeLastGrounded { get {return _timeLastGrounded;} }
+        public BoxCollider2D box => _box;
+        public Rigidbody2D rb => _rb;
+        public float skinWidth => saObject.skinWidth;
+        public float maxGroundDistance => saObject.maxGroundDistance;
+        public bool grounded => _grounded;
+        public List<KeyValuePair<Vector2, float>> groundNormals => _groundNormals;
+        public Vector2 groundNormal => _groundNormal;
+        public float distanceToGround => _distanceToGround;
+        public float timeLastGrounded => _timeLastGrounded;
 
         private bool _grounded;
         private List<KeyValuePair<Vector2, float>> _groundNormals;
@@ -35,8 +36,8 @@ namespace Components
         private float _distanceToGround;
         private float _timeLastGrounded;
         private BoxRayOffsets _rayOffsets;
-        private Vector2 _firstGroundRay => (Vector2)transform.position + _rayOffsets.bottomLeft;
-        private Vector2 _lastGroundRay => (Vector2)transform.position + _rayOffsets.bottomRight;
+        private Vector2 firstGroundRay => (Vector2)transform.position + _rayOffsets.bottomLeft;
+        private Vector2 lastGroundRay => (Vector2)transform.position + _rayOffsets.bottomRight;
     
         public void Awake() 
         {
@@ -161,7 +162,7 @@ namespace Components
 
         public bool CastGroundRay(float t, out RaycastHit2D hit)
         {
-            Vector2 rayOrigin = math.lerp(_firstGroundRay, _lastGroundRay, t);
+            Vector2 rayOrigin = math.lerp(firstGroundRay, lastGroundRay, t);
 
         
             int layerMask = 1<<6;

@@ -24,7 +24,7 @@ namespace Pixel
         private int frameCount => frames.Count;
         private int _frameIndex = 0;
 
-        public PixelFrame nextFrame()
+        public PixelFrame NextFrame()
         {
             _frameIndex += 1;
             _frameIndex = (looping) ? _frameIndex % frameCount : Mathf.Clamp(_frameIndex, 0, frameCount - 1);
