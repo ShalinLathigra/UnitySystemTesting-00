@@ -1,7 +1,7 @@
 using UnityEngine;
 using Characters.Base;
 using BStateMachine;
-
+using States;
 
 namespace Characters.Player
 {

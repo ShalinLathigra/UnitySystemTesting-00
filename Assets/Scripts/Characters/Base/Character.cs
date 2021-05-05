@@ -1,5 +1,6 @@
 using Components;
 using UnityEngine;
+
 using BStateMachine;
 
 namespace Characters.Base
@@ -8,20 +9,20 @@ namespace Characters.Base
     public abstract class Character : BehaviourStateMachine
     {
 
-    
+        [SerializeField] protected PixelAnimator pixelAnimator;
         [SerializeField] protected InputWrapper inputWrapper;
-        protected SpatialAwareness spatialAwareness;
-        protected AudioClipPlayer audioClipPlayer;
-        public InputWrapper input { get{ return inputWrapper; } }
-        public SpatialAwareness spatial {get { return spatialAwareness; } }
-        public new AudioClipPlayer audio { get { return audioClipPlayer; } }
+        public SpatialAwareness spatial { get; private set; }
+        public new AudioClipPlayer audio { get; private set; }
+
+        public InputWrapper input => inputWrapper;
+        public PixelAnimator pixel => pixelAnimator;
         public BoxCollider2D box => spatial.box;
         public Rigidbody2D rb => spatial.rb;
 
         protected virtual void Awake() {
             // Cache Core components
-            spatialAwareness = GetComponent<SpatialAwareness>();
-            audioClipPlayer = GetComponentInChildren<AudioClipPlayer>();
+            spatial = GetComponent<SpatialAwareness>();
+            audio = GetComponentInChildren<AudioClipPlayer>();
 
             // Update Core for child states
             BehaviourState[] childstates = GetComponentsInChildren<BehaviourState>();

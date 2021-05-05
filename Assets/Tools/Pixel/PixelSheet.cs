@@ -2,33 +2,40 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Pixel
 {
-    [CreateAssetMenu(fileName = "PixelAnimation", menuName = "PrototypeProject/PixelAnimator/PixelAnimation")]
-    public class PixelAnimation : ScriptableObject
+    [CreateAssetMenu(fileName = "PixelSheet", menuName = "PrototypeProject/Pixel/PixelSheet")]
+    public class PixelSheet : ScriptableObject
     {
-        public static PixelAnimation CreateInstance()
+        public static PixelSheet CreateInstance()
         {
-            return ScriptableObject.CreateInstance<PixelAnimation>();
+            return ScriptableObject.CreateInstance<PixelSheet>();
         }
 
         public List<PixelFrame> frames;
-        public int frameCount => frames.Count;
-        public float frameRate;
         public float frameDuration => frameCount / frameRate;
-
-        public int frameIndex = 0;
-
-        public PixelFrame currentFrame => frames[frameIndex];
+        public float frameRate;
+        public int startFrame;
+        public PixelFrame currentFrame => frames[_frameIndex];
         public bool looping;
+
+        private int frameCount => frames.Count;
+        private int _frameIndex = 0;
 
         public PixelFrame nextFrame()
         {
-            frameIndex += 1;
-            frameIndex = (looping) ? frameIndex % frameCount : Mathf.Clamp(frameIndex, 0, frameCount - 1);
+            _frameIndex += 1;
+            _frameIndex = (looping) ? _frameIndex % frameCount : Mathf.Clamp(_frameIndex, 0, frameCount - 1);
             return currentFrame;
         }
+
+        public void RestartAnimation()
+        {
+            _frameIndex = (looping) ? startFrame % frameCount : Mathf.Clamp(startFrame, 0, frameCount - 1);;
+        }
+        
         /*
         TODO: as far as the Animator goes, this is where I'll need to start considering the different collider types
         TODO: Animator should be a whole different Part that can be attached, and reads from a scriptable object animations passed in by states. 

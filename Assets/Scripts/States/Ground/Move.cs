@@ -1,45 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Unity.Mathematics;
-
 using BStateMachine;
+using Unity.Mathematics;
+using UnityEngine;
 
 /*
 * Summary: Move
 * This State is used by all objects moving SIDE TO SIDE
 * Clamps motion to the grid, can be used by other Meta-States
 */
-public class Move : BehaviourState
+namespace States
 {
-    //* Contains all of the important fields modifying this behaviour
-    MoveSO coreMove => ((IMoveEntity)core).moveSO;
+    public class Move : BehaviourState
+    {
+        //* Contains all of the important fields modifying this behaviour
+        MoveSO coreMove => ((IMoveEntity)core).moveSO;
 
-    protected Vector2 stateVelocity;
-    public override void Enter()
-    {
-        base.Enter();
+        private Vector2 _stateVelocity;
+        public override void Enter()
+        {
+            base.Enter();
         
-        float derivedStart = math.abs((core.rb.velocity.x) / coreMove.maxSpeed);
-        startTime = derivedStart;
-    }
-    public override void FixedDo()
-    {
-        // should store stateVelocity
-        stateVelocity = new Vector2(
-            core.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
-            0.0f
+            float derivedStart = math.abs((core.rb.velocity.x) / coreMove.maxSpeed);
+            startTime = derivedStart;
+        }
+        public override void FixedDo()
+        {
+            // should store stateVelocity
+            _stateVelocity = new Vector2(
+                core.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
+                0.0f
             );
         
-        Vector2 alignWithGround = new Vector2(
-            core.spatial.groundNormal.y,
-            -core.spatial.groundNormal.x
-        );
+            Vector2 alignWithGround = new Vector2(
+                core.spatial.groundNormal.y,
+                -core.spatial.groundNormal.x
+            );
         
-        // Not a hard set to smooth out the transition
-        core.rb.velocity = math.lerp(core.rb.velocity, stateVelocity.x * alignWithGround, coreMove.accelCurve.Evaluate(Time.time - startTime));
+            // Not a hard set to smooth out the transition
+            core.rb.velocity = math.lerp(core.rb.velocity, _stateVelocity.x * alignWithGround, coreMove.accelCurve.Evaluate(Time.time - startTime));
 
-        // Completion Check
-        complete = !(core.input.shouldMove && core.spatial.grounded);
+            // Completion Check
+            complete = !(core.input.shouldMove && core.spatial.grounded);
+        }
     }
 }

@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using BStateMachine;
-public class Idle : BehaviourState
+
+namespace States
 {
-    public override void Enter()
+    public class Idle : BehaviourState
     {
-        base.Enter();
     }
 }
