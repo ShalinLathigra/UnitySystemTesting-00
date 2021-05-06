@@ -13,7 +13,7 @@ namespace Editor
     public class AudioLibraryEditor : EditorWindow
     {
         private const string BasePath = "Assets/ScriptableObjects/Audio/";
-
+    
         [MenuItem ("Window/PrototypeProject/AudioLibrary")]
         public static void ShowWindow () {
             EditorWindow.GetWindow(typeof(AudioLibraryEditor));
@@ -200,7 +200,7 @@ namespace Editor
 
         void OpenAudioLibrary () 
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Inventory Item List", "", "");
+            string absPath = EditorUtility.OpenFilePanel ("Select Audio Library Object", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);

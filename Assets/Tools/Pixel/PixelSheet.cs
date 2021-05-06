@@ -14,6 +14,17 @@ namespace Pixel
             return ScriptableObject.CreateInstance<PixelSheet>();
         }
 
+        public void Init(string _owner)
+        {
+            ownerDirectory = _owner;
+            frames = new List<PixelFrame>();
+            frameRate = 12;
+            startFrame = 0;
+            looping = false;
+        }
+
+        public string ownerDirectory;
+        
         public List<PixelFrame> frames;
         public float frameDuration => frameCount / frameRate;
         public float frameRate;
@@ -24,11 +35,11 @@ namespace Pixel
         private int frameCount => frames.Count;
         private int _frameIndex = 0;
 
-        public PixelFrame NextFrame()
+        public void NextFrame(out int _i)
         {
             _frameIndex += 1;
             _frameIndex = (looping) ? _frameIndex % frameCount : Mathf.Clamp(_frameIndex, 0, frameCount - 1);
-            return currentFrame;
+            _i = _frameIndex;
         }
 
         public void RestartAnimation()

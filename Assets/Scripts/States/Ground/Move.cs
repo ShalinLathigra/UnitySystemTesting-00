@@ -1,4 +1,5 @@
 using BStateMachine;
+using Pixel;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -12,19 +13,21 @@ namespace States
     public class Move : BehaviourState
     {
         //* Contains all of the important fields modifying this behaviour
+        public PixelSheet sheet;
         MoveSO coreMove => ((IMoveEntity)core).moveSO;
+
 
         private Vector2 _stateVelocity;
         public override void Enter()
         {
             base.Enter();
+            core.pixel.Play(sheet);
         
             float derivedStart = math.abs((core.rb.velocity.x) / coreMove.maxSpeed);
             startTime = derivedStart;
         }
         public override void FixedDo()
         {
-            // should store stateVelocity
             _stateVelocity = new Vector2(
                 core.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
                 0.0f
@@ -34,6 +37,7 @@ namespace States
                 core.spatial.groundNormal.y,
                 -core.spatial.groundNormal.x
             );
+            //TODO: If floor is too steep, X and Y component of velocity can't make you move along ground.
         
             // Not a hard set to smooth out the transition
             core.rb.velocity = math.lerp(core.rb.velocity, _stateVelocity.x * alignWithGround, coreMove.accelCurve.Evaluate(Time.time - startTime));

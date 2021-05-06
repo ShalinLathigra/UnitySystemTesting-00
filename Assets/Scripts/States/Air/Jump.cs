@@ -7,6 +7,7 @@ namespace States
     public class Jump : BehaviourState
     {
         AirSO coreAir => ((IAirEntity)core).airSO;
+        [SerializeField] protected AudioClipSO audioSO;
         private AnimationCurve jumpCurve => coreAir.jumpCurve;
         private float duration => jumpCurve.keys[jumpCurve.keys.Length - 1].time;
 

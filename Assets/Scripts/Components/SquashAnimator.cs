@@ -6,6 +6,11 @@ using Easing;
 
 namespace Components
 {
+    /* Responsibilities:
+     * Application of Squash and Stretch to a transform
+     * Only affects X and Y values
+     * Currently assumes default scale of 1,1,1. Can change later if desired
+     */
     public class SquashAnimator : MonoBehaviour
     {
         private SimpleAnimation _simple;
@@ -15,7 +20,7 @@ namespace Components
         
         private float _squashStretch;
 
-        private float BaseSquashStretch = 1.0f;
+        private readonly float BaseSquashStretch = 1.0f;
 
         private Transform _target;
         

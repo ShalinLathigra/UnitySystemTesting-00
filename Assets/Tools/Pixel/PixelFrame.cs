@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -5,6 +6,7 @@ using UnityEngine.Serialization;
 namespace Pixel
 {
     [CreateAssetMenu(fileName = "PixelFrame", menuName = "PrototypeProject/Pixel/PixelFrame")]
+    [Serializable]
     public class PixelFrame : ScriptableObject
     {
         /* Responsibilities: 
@@ -12,14 +14,51 @@ namespace Pixel
          * Stores:
          *      Sprite
          *      Added squash/Stretch in this cell
-         *      Colliders at this frame
-         *          Each frame can have a list of colliders of each type?
-         *          Makes more sense to have colliders be generic, and supplied with a type?
+         *      Lists of PixelBox types  
          */
+
+        public void Init()
+        {
+            hitProps = new HitFrameProperties(Color.red);
+            hurtProps = new HurtFrameProperties(Color.green);
+            
+        }
+
+        [SerializeField]
         public Sprite sprite;
-        
-        [Tooltip("Positive squash, negative stretch")]
-        [Range(-0.5f, 0.5f)]
-        public float frameSquash = 0.0f;
-    }   
+
+        [SerializeField]
+        public HitFrameProperties hitProps;
+        [SerializeField]
+        public HurtFrameProperties hurtProps;
+
+        // Has some sort of timeline of events
+        // Updates it's box values based on these input timelines?
+    }
+    [System.Serializable]
+    public struct HitFrameProperties
+    {
+        public Rect shape;
+        public bool active;
+        public Color color;
+        public HitFrameProperties(Color c)
+        {
+            color = c;
+            active = false;
+            shape = Rect.zero;
+        }
+    }
+    [System.Serializable]
+    public struct HurtFrameProperties
+    {
+        public Rect shape;
+        public bool active;
+        public Color color;
+        public HurtFrameProperties(Color c)
+        {
+            color = c;
+            active = false;
+            shape = Rect.zero;
+        }
+    }
 }

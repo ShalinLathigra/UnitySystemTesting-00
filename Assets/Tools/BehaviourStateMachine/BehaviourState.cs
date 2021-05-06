@@ -1,12 +1,11 @@
-using Characters.Base;
 using UnityEngine;
+using Characters.Base;
 
 namespace BStateMachine
 {
     public abstract class BehaviourState : BehaviourStateMachine
     {
         [HideInInspector] public Character core;
-        [SerializeField] protected AudioClipSO audioSO;
         public virtual bool complete { get; set; }
         public virtual float startTime { get; set; }
         public virtual void Enter(){ ClearState(false); startTime = Time.time; }
