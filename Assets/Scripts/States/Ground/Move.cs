@@ -1,7 +1,7 @@
-using BStateMachine;
-using Pixel;
 using Unity.Mathematics;
 using UnityEngine;
+
+using BStateMachine;
 
 /*
 * Summary: Move
@@ -13,7 +13,6 @@ namespace States
     public class Move : BehaviourState
     {
         //* Contains all of the important fields modifying this behaviour
-        public PixelSheet sheet;
         MoveSO coreMove => ((IMoveEntity)core).moveSO;
 
 
@@ -21,7 +20,6 @@ namespace States
         public override void Enter()
         {
             base.Enter();
-            core.pixel.Play(sheet);
         
             float derivedStart = math.abs((core.rb.velocity.x) / coreMove.maxSpeed);
             startTime = derivedStart;

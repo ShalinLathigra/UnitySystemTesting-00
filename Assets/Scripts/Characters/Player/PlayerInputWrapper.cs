@@ -7,9 +7,8 @@ namespace Characters.Player
     public class PlayerInputWrapper : InputWrapper
     {
         /* 
-    * SUMMARY: Exposes input from the PlayerInput to other components
-    TODO: Figure out what OTHER input I want available, expose it through here
-    */
+         * SUMMARY: Exposes input from the PlayerInput to other components
+         */
         private bool _jumpCancelled;
         private bool _shouldMove;
         private Vector2 _directionalInput;

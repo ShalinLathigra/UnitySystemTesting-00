@@ -9,14 +9,12 @@ namespace Characters.Base
     public abstract class Character : BehaviourStateMachine
     {
 
-        [SerializeField] protected PixelAnimator pixelAnimator;
         [SerializeField] protected SquashAnimator squashAnimator;
         [SerializeField] protected InputWrapper inputWrapper;
         public SpatialAwareness spatial { get; private set; }
         public new AudioClipPlayer audio { get; private set; }
 
         public InputWrapper input => inputWrapper;
-        public PixelAnimator pixel => pixelAnimator;
         public SquashAnimator squash => squashAnimator;
         public BoxCollider2D box => spatial.box;
         public Rigidbody2D rb => spatial.rb;

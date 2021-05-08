@@ -118,7 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 0}
   core: {fileID: 0}
-  audioSO: {fileID: 0}
 --- !u!114 &7883228290873691432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 0}
   core: {fileID: 0}
-  audioSO: {fileID: 0}
   jump: {fileID: 7557400882096951754}
   fall: {fileID: 908727993654227812}
 --- !u!1 &6302711064380856019
@@ -371,10 +369,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7049315bf88c5c04284f69eb3fb74da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 11400000, guid: 82ac9d3cfd27d05499fdaa0b6a6c55c6, type: 2}
+  anim: {fileID: 0}
   spriteRenderer: {fileID: 0}
   hitBox: {fileID: 0}
   hurtBox: {fileID: 0}
+  playing: 0
+  index: 0
 --- !u!1 &9126178813701438085
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +390,6 @@ GameObject:
   - component: {fileID: 9126178813701438086}
   - component: {fileID: 5158925066264773267}
   - component: {fileID: 8454225171876955902}
-  - component: {fileID: 142682706341581669}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -622,22 +621,6 @@ MonoBehaviour:
   _airSO: {fileID: 11400000, guid: cce5d299d7e944d43b2c9cd7f30399aa, type: 2}
   groundMeta: {fileID: 7053489476094189896}
   airMeta: {fileID: 7883228290873691432}
---- !u!114 &142682706341581669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9126178813701438085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7049315bf88c5c04284f69eb3fb74da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 11400000, guid: 82ac9d3cfd27d05499fdaa0b6a6c55c6, type: 2}
-  spriteRenderer: {fileID: 6280683406622967766}
-  hitBox: {fileID: 1213914860599660142}
-  hurtBox: {fileID: 839419726706870782}
 --- !u!1 &9126178813866421937
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 0}
   core: {fileID: 0}
-  audioSO: {fileID: 0}
+  sheet: {fileID: 0}
 --- !u!114 &5090093098265495270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 0}
   core: {fileID: 0}
-  audioSO: {fileID: 0}
+  sheet: {fileID: 0}
 --- !u!114 &7053489476094189896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +698,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 0}
   core: {fileID: 0}
-  audioSO: {fileID: 0}
   move: {fileID: 9126178813866421936}
   idle: {fileID: 5090093098265495270}

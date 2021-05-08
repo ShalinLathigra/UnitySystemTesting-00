@@ -1,274 +1,211 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using Pixel;
-using UnityEditor;
 using UnityEngine;
-using Object = System.Object;
+using UnityEditor;
+using UnityEditor.Graphs;
+using UnityEngine.UI;
 
 namespace Editor
 {
-    public class PixelSheetEditor : EditorWindow
+    [CustomEditor(typeof(PixelSheet), true)]
+    public class PixelSheetEditor : UnityEditor.Editor
     {
-        private const string SheetPath = "Assets/ScriptableObjects/PixelSheets";
-        
-        [MenuItem ("Window/PrototypeProject/PixelSheetEditor")]
-        public static void ShowWindow () {
-            GetWindow(typeof(PixelSheetEditor));
+        private PixelSheet sheet => target as PixelSheet;
+        private List<PixelFrame> frames => sheet.frames;
+
+        public float width => Screen.width * 0.8f;
+        private int _index;
+
+        private bool currentSpriteNotNull => frames[_index].sprite != null;
+
+        protected void OnEnable()
+        {
+            _index = 0;
         }
 
-
-        public PixelSheet targetSheet;
-        public PixelFrame targetFrame;
-
-        private string _newAnimPath;
-        
-        private void OnGUI()
+        /* THIS IS THE MAIN BODY, ALL OTHER FUNCTIONS ARE CALLED FROM HERE
+         * START DEBUG HERE!!
+         * IMPORTANT: 
+         */
+        public override void OnInspectorGUI()
         {
-            EditorGUIUtility.labelWidth = 75;
-            DisplayHeader();
-            if (targetSheet != null)
+            if (sheet == null) return;
+         
+            GUILayout.BeginVertical();
+
+            StartFlexHorizontal();
+            DisplayNewSprite();
+            EndFlexHorizontal();
+
+            if (frames.Count > 0)
             {
-                DisplayActiveSheet();
+                GUILayout.Space(30);
+
+                if (currentSpriteNotNull)
+                    DisplayCurrentFrame();
+                DisplayFrameControls();
+                GUILayout.Space(30);
+                StartFlexHorizontal();
+                DisplayIndexControls();
+                EndFlexHorizontal();
+                GUILayout.Space(30);
+
+                DisplayRemoveFrame();
             }
-            DisplayCreateNewSheet();
+
+            GUILayout.EndVertical();
+
+            //base.OnInspectorGUI();
+            EditorUtility.SetDirty(sheet);
         }
 
-        private void DisplayHeader()
+        private void DisplayRemoveFrame()
         {
-            GUILayout.BeginHorizontal ();
-            GUILayout.Label ("PixelSheet Editor", EditorStyles.boldLabel);
-            if (targetSheet != null)
+            if (GUILayout.Button("REMOVE FRAME"))
             {
-                if (GUILayout.Button("Show Active Sheet")) 
+                // ReSharper disable once StringLiteralTypo
+                if (EditorUtility.DisplayDialog("Remove Frame for realsies?", "This will remove the frame. You sure?",
+                    "Yes, heck this frame", "I take it all back!!!!!"))
                 {
-                    EditorUtility.FocusProjectWindow();
-                    Selection.activeObject = targetSheet;
-                }
-            }
-            if (GUILayout.Button("Open Sheet")) 
-            {
-                OpenPixelSheet();
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(20);
-        }
-
-        private void DisplayActiveSheet()
-        {            
-            GUILayout.BeginVertical();
-            GUILayout.BeginHorizontal();
-            targetSheet.name = EditorGUILayout.TextField(targetSheet.name);// GUILayout.Label ($"{targetSheet.name}", EditorStyles.boldLabel);
-            if (GUILayout.Button("New Frame"))
-                CreatePixelFrame();
-            if (targetFrame != null)
-                if (GUILayout.Button("Delete Frame"))
-                    DeleteFrame();
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal();
-            if (targetSheet.frames.Count > 0)
-            {
-                if (GUILayout.Button("Next Frame"))
-                    ChangeFrame(1);
-                if (GUILayout.Button("Prev Frame"))
-                    ChangeFrame(-1);   
-            }
-            GUILayout.EndHorizontal();
-            targetSheet.frameRate = EditorGUILayout.Slider("FrameRate: ", targetSheet.frameRate, 0, 24);
-            targetSheet.looping = EditorGUILayout.Toggle("Looping?: ", targetSheet.looping);
-            if (targetFrame != null)
-                DisplayActiveFrame();
-            GUILayout.BeginScrollView(Vector2.zero);
-            GUILayout.FlexibleSpace();
-
-            for (int i = 0; i < targetSheet.frames.Count; i++)
-            {
-                GUILayout.Label ($"{i}: {targetSheet.frames[i].name}", EditorStyles.boldLabel);                
-            }
-            GUILayout.FlexibleSpace();
-            GUILayout.EndScrollView();
-            GUILayout.EndVertical();
-        }
-
-        private void ChangeFrame(int dir)
-        {
-            int index = targetSheet.frames.IndexOf(targetFrame);
-            index = (targetSheet.frames.Count + index + dir) % targetSheet.frames.Count;
-            targetFrame = targetSheet.frames[index];
-        }
-
-        private void DeleteFrame()
-        {
-            // check if index % count is good, remove index from list
-            if (!targetSheet.frames.Contains(targetFrame)) return;
-            // Remove frame from sheet
-            targetSheet.frames.Remove(targetFrame);
-            //Remove frame from DB
-            string assetPath = SheetPath + $"/{targetSheet.ownerDirectory}/{targetFrame.name}.asset";
-            AssetDatabase.DeleteAsset(assetPath);
-            // Clear targetFrame
-            targetFrame = targetSheet.frames.Count > 0 ? targetSheet.currentFrame : null;
-        }
-        
-        private void CreatePixelFrame () 
-        {
-            string newFrameName = targetSheet.name + "_" + targetSheet.frames.Count;
-            PixelFrame newFrame = CreateNewPixelFrame(targetSheet, newFrameName);
-            targetFrame = newFrame;
-            targetSheet.frames.Add(targetFrame);
-        }
-        
-        private static PixelFrame CreateNewPixelFrame(PixelSheet targetSheet, string name)
-        {
-            PixelFrame asset = ScriptableObject.CreateInstance<PixelFrame>();
-            asset.name = name;
-            
-            asset.Init();
-            
-            string desiredPath = SheetPath + $"/{targetSheet.ownerDirectory}/{targetSheet.name}";
-            AssetDatabase.CreateAsset(asset, desiredPath + $"/{asset.name}.asset");
-            AssetDatabase.SaveAssets();
-            EditorUtility.FocusProjectWindow();
-            return asset;
-        }
-/*
-        private Object _newClip;
-        private float _newVolume = 1;
-        private float _newPitch = 1;
-        private bool _newLoop;
-
-        private void DisplayCreateNewClip()
-        {
-            GUILayout.BeginHorizontal ();
-            GUILayout.Label ("New AudioClipSO", EditorStyles.boldLabel);
-            // if the required fields are all good: 
-            GUILayout.BeginVertical ();
-            _newName = EditorGUILayout.TextField("Name:", _newName);
-            _newClip = EditorGUILayout.ObjectField("Audio Clip:", _newClip, typeof(AudioClip), false);
-            _newVolume = EditorGUILayout.Slider("Volume:", _newVolume, 0, 1);
-            _newPitch = EditorGUILayout.Slider("Pitch:", _newPitch, -3, 3);
-            _newLoop = EditorGUILayout.Toggle("Loop:", _newLoop);
-            GUILayout.EndVertical ();
-
-            GUILayout.Space(40);
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(20);
-        }
-        */
-        bool hit, hurt;
-        private void DisplayActiveFrame()
-        {
-            GUILayout.Space(20);
-            GUILayout.BeginVertical();
-            GUILayout.Label ($"{targetFrame.name}", EditorStyles.boldLabel);
-            
-            targetFrame.sprite = EditorGUILayout.ObjectField("Sprite: ", targetFrame.sprite, typeof(Sprite), false) as Sprite;
-            
-            GUILayout.BeginHorizontal();
-            targetFrame.hitProps.active = EditorGUILayout.Toggle("Hit Box?", targetFrame.hitProps.active);
-            GUILayout.BeginVertical();
-            targetFrame.hitProps.shape.center =
-                EditorGUILayout.Vector2Field("Center", targetFrame.hitProps.shape.center);
-            targetFrame.hitProps.shape.size =
-                EditorGUILayout.Vector2Field("Dims", targetFrame.hitProps.shape.size); 
-            GUILayout.EndVertical();
-            targetFrame.hurtProps.active = EditorGUILayout.Toggle("Hurt Box?", targetFrame.hurtProps.active);
-            GUILayout.BeginVertical();
-            targetFrame.hurtProps.shape.center =
-                EditorGUILayout.Vector2Field("Center", targetFrame.hurtProps.shape.center);
-            targetFrame.hurtProps.shape.size =
-                EditorGUILayout.Vector2Field("Dims", targetFrame.hurtProps.shape.size);
-            GUILayout.EndVertical();
-            GUILayout.EndHorizontal();
-            
-            GUILayout.EndVertical();
-            GUILayout.Space(20);
-            GUILayout.FlexibleSpace();
-            
-            
-            /* Need to display:
-             * Sprite
-             * 
-             */ 
-        }
-        
-        private void DisplayCreateNewSheet()
-        {
-            GUILayout.BeginHorizontal ();
-            GUILayout.Label ("New Pixel Sheet", EditorStyles.boldLabel);
-            // if the required fields are all good: 
-            GUILayout.BeginVertical ();
-            _newAnimPath = EditorGUILayout.TextField("Owner/Name", _newAnimPath);
-            GUILayout.EndVertical ();
-
-            GUILayout.Space(40);
-
-            if (GUILayout.Button("Create New Pixel Sheet")) 
-            {
-                CreatePixelSheet();
-                ResetNewSheetValues();
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(20);
-        }
-
-        void ResetNewSheetValues()
-        {
-            _newAnimPath = "/";
-        }
-        
-        void OpenPixelSheet () 
-        {
-            string absPath = EditorUtility.OpenFilePanel ("Select Pixel Sheet", "", "");
-            if (absPath.StartsWith(Application.dataPath)) 
-            {
-                string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                targetSheet = AssetDatabase.LoadAssetAtPath (relPath, typeof(PixelSheet)) as PixelSheet;
-                if (targetSheet) {
-                    EditorPrefs.SetString("AudioLibraryObjectPath", relPath);
-                    if (targetSheet.frames != null && targetSheet.frames.Count > 0)
-                        targetFrame = targetSheet.frames[0];
+                    _index = sheet.RemoveFrame(_index);
                 }
             }
         }
 
-        private void CreatePixelSheet () 
+        private void DisplayCurrentFrame()
         {
-            if (string.Equals(_newAnimPath, "")) return;
-            PixelSheet newItem = CreateNewPixelSheet(_newAnimPath);
-            targetSheet = newItem;
-            targetFrame = null;
+            Vector2 dims = frames[_index].sprite.rect.size;
+            
+            Vector2 spriteOrigin = new Vector2(width * 0.5f, 128 + dims.y * 0.5f);
+            Rect spriteRect = new Rect();
+            spriteRect.size = frames[_index].sprite.rect.size;
+            spriteRect.center = spriteOrigin;
+            EditorGUI.DrawTextureTransparent(spriteRect, GenerateTextureFromSprite(frames[_index].sprite), ScaleMode.ScaleToFit);
+
+            Vector2 rectAreaStart = new Vector2(width * 0.5f - dims.x * 0.5f, 128 + 192);
+            pivot = new Vector2((rectAreaStart + frames[_index].sprite.pivot).x, rectAreaStart.y - frames[_index].sprite.pivot.y);
+    
+            Rect boxRect;
+            // Basically, gotta set rect offsets such that
+            // Key thing here is that the y value we provide is inverse of y value we want
+            boxRect = new Rect(pivot.x, pivot.y, 2, 2);
+            EditorGUI.DrawRect(boxRect, Color.cyan);
+
+            PixelBoxProps hurtBox = frames[_index].hurtProps;
+            Color hurtColor = new Color(1f, 0f, 0f, 0.39f);
+            PixelBoxProps hitBox = frames[_index].hitProps;
+            Color hitColor = new Color(0f, 1f, 0f, 0.39f);
+            
+            if (hurtBox.active)
+                DisplayBox(hurtBox, hurtColor);
+            if (hitBox.active)
+                DisplayBox(hitBox, hitColor);
+            
+            GUILayout.Space(spriteRect.height + spriteRect.y);
+        }
+
+        private Vector2 pivot;
+
+        private void DisplayBox(PixelBoxProps _box, Color color)
+        {
+            Rect boxRect = new Rect
+            {
+                size = _box.size, center = new Vector2(pivot.x + _box.center.x, pivot.y - _box.center.y)
+            };
+            EditorGUI.DrawRect(boxRect, color);
+        }
+
+
+        private Object _swapSprite;
+        private void DisplayFrameControls()
+        {
+            GUILayout.Label("Hit Box Properties");
+            frames[_index].hitProps.center = EditorGUILayout.Vector2Field("Center: ", frames[_index].hitProps.center);
+            frames[_index].hitProps.size = EditorGUILayout.Vector2Field("Size: ", frames[_index].hitProps.size);
+            GUILayout.BeginHorizontal();
+            frames[_index].hitProps.value = EditorGUILayout.FloatField("Damage: ", frames[_index].hitProps.value);
+            frames[_index].hitProps.active = EditorGUILayout.Toggle("Active: ", frames[_index].hitProps.active);
+            GUILayout.EndHorizontal();
+            
+            GUILayout.Label("Hurt Box Properties");
+            frames[_index].hurtProps.center = EditorGUILayout.Vector2Field("Center: ", frames[_index].hurtProps.center);
+            frames[_index].hurtProps.size = EditorGUILayout.Vector2Field("Size: ", frames[_index].hurtProps.size);
+            GUILayout.BeginHorizontal();
+            frames[_index].hurtProps.value = EditorGUILayout.FloatField("Damage: ", frames[_index].hurtProps.value);
+            frames[_index].hurtProps.active = EditorGUILayout.Toggle("Active: ", frames[_index].hurtProps.active);
+            GUILayout.EndHorizontal();
+
+            frames[_index].sprite = EditorGUILayout.ObjectField(frames[_index].sprite, typeof(Sprite), false) as Sprite;
         }
         
-        private static PixelSheet CreateNewPixelSheet(string _animPath)
+        // Function sourced from: https://answers.unity.com/questions/953254/display-a-sprite-in-an-editorwindow.html
+        Texture2D GenerateTextureFromSprite(Sprite aSprite)
         {
-            int i = _animPath.IndexOf("/", StringComparison.Ordinal);
-            string owner = (i > -1) ? _animPath.Substring(0, i) : _animPath;
-            string name = (i > -1) ? _animPath.Substring(i+1, _animPath.Length - i - 1) : _animPath;
-            
-            PixelSheet asset = ScriptableObject.CreateInstance<PixelSheet>();
-            asset.name = name;
-
-            string ownerPath = SheetPath + $"/{owner}";
-            string assetPath = ownerPath + $"/{asset.name}";
-            if (!AssetDatabase.IsValidFolder(ownerPath))
-            {
-                string guid = AssetDatabase.CreateFolder(SheetPath, $"{owner}");
-                ownerPath = AssetDatabase.GUIDToAssetPath(guid);   
-            }
-            if (!AssetDatabase.IsValidFolder(assetPath))
-            {
-                string guid = AssetDatabase.CreateFolder(ownerPath, $"{asset.name}");
-                assetPath = AssetDatabase.GUIDToAssetPath(guid);   
-            }
-            
-            asset.Init(owner);
-            
-            AssetDatabase.CreateAsset(asset, assetPath + $"/{asset.name}.asset");
-            AssetDatabase.SaveAssets();
-            EditorUtility.FocusProjectWindow();
-            return asset;
+            var rect = aSprite.rect;
+            var tex = new Texture2D((int)rect.width, (int)rect.height);
+            var data = aSprite.texture.GetPixels((int)rect.x, (int)rect.y, (int)rect.width, (int)rect.height);
+            tex.SetPixels(data);
+            tex.Apply(true);
+            return tex;
         }
+
+
+        private void DisplayIndexControls()
+        {
+            if (GUILayout.Button("Last Frame") && currentSpriteNotNull)
+                _index = ((_index - 1) + frames.Count) % frames.Count;
+            
+            GUILayout.Label($"{sheet.name}_{_index}");
+            
+            if (GUILayout.Button("Next Frame") && currentSpriteNotNull)
+                _index = (_index + 1) % frames.Count;
+            GUILayout.Label($"{_index + 1} / {frames.Count}");
+        }
+        
+        private Object _newSprite;
+        private void DisplayNewSprite()
+        {
+            _newSprite = EditorGUILayout.ObjectField("Add Frame: ", _newSprite, typeof(Sprite), false);
+            
+            if (_newSprite == null) return;
+
+            if (GUILayout.Button("Add Frame And Clear", EditorStyles.toolbarButton))
+            {
+                _index = frames.Count;
+                sheet.AddFrame(_newSprite as Sprite, _index);
+                _newSprite = null;
+            }
+            if (GUILayout.Button("Add Frame", EditorStyles.toolbarButton))
+            {
+                _index = frames.Count;
+                sheet.AddFrame(_newSprite as Sprite, _index);
+            }
+        }
+        
+        
+        // Helper Functions
+        private void StartFlexHorizontal()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+        }
+        private void EndFlexHorizontal()
+        {
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+        }
+
+        private void StartFlexVertical()
+        {
+            GUILayout.BeginVertical();
+            GUILayout.FlexibleSpace();
+        }
+        private void EndFlexVertical()
+        {
+            GUILayout.FlexibleSpace();
+            GUILayout.EndVertical();
+        }
+
     }
 }
