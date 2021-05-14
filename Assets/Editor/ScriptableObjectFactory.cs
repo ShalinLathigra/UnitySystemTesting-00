@@ -1,5 +1,6 @@
 using System;
 using Pixel;
+using States;
 using UnityEditor;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
@@ -51,7 +52,7 @@ namespace Editor
             GUILayout.Label("Pixel Objects");
             if (GUILayout.Button("PixelLibrary"))
             {
-                PixelLibrary asset = ScriptableObject.CreateInstance<PixelLibrary>();
+                PixelLibrary asset = PixelLibrary.CreateInstance();
                 ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
                     asset.GetInstanceID(),
                     ScriptableObject.CreateInstance<EndNameEdit>(),
@@ -62,7 +63,7 @@ namespace Editor
             }
             if (GUILayout.Button("PixelSheet"))
             {
-                PixelSheet asset = ScriptableObject.CreateInstance<PixelSheet>();
+                PixelSheet asset = PixelSheet.CreateInstance();
                 ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
                     asset.GetInstanceID(),
                     ScriptableObject.CreateInstance<EndNameEdit>(),

@@ -33,9 +33,11 @@ namespace Editor
             if (sheet == null) return;
          
             GUILayout.BeginVertical();
-
             StartFlexHorizontal();
             DisplayNewSprite();
+            EndFlexHorizontal();
+            StartFlexHorizontal();
+            DisplaySheetControls();
             EndFlexHorizontal();
 
             if (frames.Count > 0)
@@ -58,6 +60,12 @@ namespace Editor
 
             //base.OnInspectorGUI();
             EditorUtility.SetDirty(sheet);
+        }
+
+        private void DisplaySheetControls()
+        {
+            sheet.loop = EditorGUILayout.Toggle("Looping? ", sheet.loop);
+            sheet.frameRate = EditorGUILayout.IntField("Frame Rate: ", sheet.frameRate);
         }
 
         private void DisplayRemoveFrame()
@@ -83,7 +91,7 @@ namespace Editor
             spriteRect.center = spriteOrigin;
             EditorGUI.DrawTextureTransparent(spriteRect, GenerateTextureFromSprite(frames[_index].sprite), ScaleMode.ScaleToFit);
 
-            Vector2 rectAreaStart = new Vector2(width * 0.5f - dims.x * 0.5f, 128 + 192);
+            Vector2 rectAreaStart = new Vector2(width * 0.5f - dims.x * 0.5f, 128 + dims.y);
             pivot = new Vector2((rectAreaStart + frames[_index].sprite.pivot).x, rectAreaStart.y - frames[_index].sprite.pivot.y);
     
             Rect boxRect;
@@ -102,7 +110,7 @@ namespace Editor
             if (hitBox.active)
                 DisplayBox(hitBox, hitColor);
             
-            GUILayout.Space(spriteRect.height + spriteRect.y);
+            GUILayout.Space(spriteRect.height * 0.5f + spriteRect.y);
         }
 
         private Vector2 pivot;
@@ -117,22 +125,27 @@ namespace Editor
         }
 
 
-        private Object _swapSprite;
         private void DisplayFrameControls()
         {
+            
+            GUILayout.Label("Frame Squash");
+            frames[_index].appliedSquash = EditorGUILayout.Slider(frames[_index].appliedSquash, -1, 1);
+            
             GUILayout.Label("Hit Box Properties");
             frames[_index].hitProps.center = EditorGUILayout.Vector2Field("Center: ", frames[_index].hitProps.center);
             frames[_index].hitProps.size = EditorGUILayout.Vector2Field("Size: ", frames[_index].hitProps.size);
             GUILayout.BeginHorizontal();
-            frames[_index].hitProps.value = EditorGUILayout.FloatField("Damage: ", frames[_index].hitProps.value);
+            frames[_index].hitProps.value = EditorGUILayout.FloatField("Value: ", frames[_index].hitProps.value);
             frames[_index].hitProps.active = EditorGUILayout.Toggle("Active: ", frames[_index].hitProps.active);
             GUILayout.EndHorizontal();
+            frames[_index].hitProps.squash = EditorGUILayout.Slider("Hit Squash", frames[_index].hitProps.squash, -1, 1);
+            frames[_index].hitProps.hitStop = EditorGUILayout.Slider("HitStop", frames[_index].hitProps.hitStop, 0, 0.5f);
             
             GUILayout.Label("Hurt Box Properties");
             frames[_index].hurtProps.center = EditorGUILayout.Vector2Field("Center: ", frames[_index].hurtProps.center);
             frames[_index].hurtProps.size = EditorGUILayout.Vector2Field("Size: ", frames[_index].hurtProps.size);
             GUILayout.BeginHorizontal();
-            frames[_index].hurtProps.value = EditorGUILayout.FloatField("Damage: ", frames[_index].hurtProps.value);
+            frames[_index].hurtProps.value = EditorGUILayout.FloatField("Value: ", frames[_index].hurtProps.value);
             frames[_index].hurtProps.active = EditorGUILayout.Toggle("Active: ", frames[_index].hurtProps.active);
             GUILayout.EndHorizontal();
 
@@ -153,7 +166,7 @@ namespace Editor
 
         private void DisplayIndexControls()
         {
-            if (GUILayout.Button("Last Frame") && currentSpriteNotNull)
+            if (GUILayout.Button("Prev Frame") && currentSpriteNotNull)
                 _index = ((_index - 1) + frames.Count) % frames.Count;
             
             GUILayout.Label($"{sheet.name}_{_index}");

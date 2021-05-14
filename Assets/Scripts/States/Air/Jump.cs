@@ -1,10 +1,10 @@
-using BStateMachine;
+using BehaviourStateTree;
 using Easing;
 using UnityEngine;
 
 namespace States
 {
-    public class Jump : BehaviourState
+    public class Jump : StateBranch
     {
         AirSO coreAir => ((IAirEntity)core).airSO;
         [SerializeField] protected AudioClipSO audioSO;

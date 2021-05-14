@@ -1,3 +1,4 @@
+using States;
 using UnityEngine;
 
 namespace Characters.Base

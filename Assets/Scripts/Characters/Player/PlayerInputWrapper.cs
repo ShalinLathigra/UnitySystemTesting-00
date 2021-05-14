@@ -9,21 +9,26 @@ namespace Characters.Player
         /* 
          * SUMMARY: Exposes input from the PlayerInput to other components
          */
-        private bool _jumpCancelled;
         private bool _shouldMove;
         private Vector2 _directionalInput;
+        private bool _jumpCancelled;
+        private int _lastAttackKey;
 
 
         [SerializeField] protected float jumpBufferTime;
         private float _timeOfLastJumpInput = -100.0f;
 
-        // Should store: Time of last call
-        // How much leeway the player has
-
+        [SerializeField] protected float attackBufferTime;
+        private float _timeOfLastAttackInput = -100.0f;
+        
         public override bool shouldMove => _shouldMove;
-        public override bool jumpCancelled => _jumpCancelled;
 
         public override bool shouldJump => _timeOfLastJumpInput + jumpBufferTime >= Time.time;
+        public override bool shouldAttack => _timeOfLastAttackInput + attackBufferTime >= Time.time;
+        
+        public override bool jumpCancelled => _jumpCancelled;
+        public override int lastAttackKey => _lastAttackKey;
+        
 
 
         public override Vector2 directionalInput => _directionalInput;
@@ -33,16 +38,17 @@ namespace Characters.Player
         private void Awake() {
             _directionalInput = new Vector2();
             _shouldMove = false;
+            _lastAttackKey = 0;
         }
 
-        public void Move(InputAction.CallbackContext context)
+        public override void Move(InputAction.CallbackContext context)
         {
-            Vector2 newInput = context.ReadValue<Vector2>();
+            var newInput = context.ReadValue<Vector2>();
             _directionalInput = newInput;
             _shouldMove = _directionalInput != Vector2.zero;
         }
 
-        public void Jump(InputAction.CallbackContext context)
+        public override void Jump(InputAction.CallbackContext context)
         {
             if (!context.canceled)
             {
@@ -53,6 +59,25 @@ namespace Characters.Player
             {
                 _jumpCancelled = true;
             }
+        }
+
+        public void Strike1(InputAction.CallbackContext context)
+        {
+            if (context.canceled) return;
+            _timeOfLastAttackInput = Time.time;
+            _lastAttackKey = 0;
+        }
+        public void Strike2(InputAction.CallbackContext context)
+        {
+            if (context.canceled) return;
+            _timeOfLastAttackInput = Time.time;
+            _lastAttackKey = 1;
+        }
+        public void Strike3(InputAction.CallbackContext context)
+        {
+            if (context.canceled) return;
+            _timeOfLastAttackInput = Time.time;
+            _lastAttackKey = 2;
         }
     }
 }

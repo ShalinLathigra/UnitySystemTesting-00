@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 33fd765ac8ad088438a37f7a374b8bef, type: 3}
-  volume: 0.05
+  volume: 0.15
   pitch: 1
   loop: 0

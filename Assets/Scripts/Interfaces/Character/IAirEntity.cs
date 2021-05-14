@@ -1,4 +1,6 @@
 
+using States;
+
 public interface IAirEntity
 {
     public abstract bool canJump { get; }

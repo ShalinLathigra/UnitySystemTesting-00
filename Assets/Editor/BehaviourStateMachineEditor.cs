@@ -1,16 +1,16 @@
 using UnityEditor;
 using UnityEngine;
-using BStateMachine;
+using BehaviourStateTree;
 
 namespace Editor
 {
-    [CustomEditor(typeof(BehaviourStateMachine), true)]
+    [CustomEditor(typeof(StateTree), true)]
     public class BehaviourStateMachineEditor : UnityEditor.Editor {
         public override void OnInspectorGUI() {
             // Need to create a label which displays:
             // State
             // State.DeepState
-            var item = target as BehaviourStateMachine;
+            var item = target as StateTree;
     
             EditorGUILayout.LabelField(item.GetStatePathString());
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);

@@ -17,21 +17,9 @@ public class Engine : MonoBehaviour
         if (_e != null && _e != this)
             Destroy (this.gameObject);
         else
+        {
             _e = this;
-    }
-    
-    public void ResolveCollision(PixelBox origin, PixelBox target)
-    {
-        Debug.Log(origin.name + " " + target.name);
-    }
-
-    public void RegisterPixelAnimator(PixelBoxAnimator _pixelBoxAnimator)
-    {
-        _pixelBoxAnimator.hitCollision += ResolveCollision;
-    }
-
-    public void DeRegisterPixelAnimator(PixelBoxAnimator _pixelBoxAnimator)
-    {
-        _pixelBoxAnimator.hitCollision -= ResolveCollision;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }

@@ -1,10 +1,10 @@
-using BStateMachine;
+using BehaviourStateTree;
 using Easing;
 using UnityEngine;
 
 namespace States
 {
-    public class Fall : BehaviourState
+    public class Fall : StateBranch
     {
         AirSO coreAir => ((IAirEntity)core).airSO;
 

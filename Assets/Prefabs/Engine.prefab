@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e11a860deb3ab4aacf6924109ff8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 826504678513080515, guid: 43690174c1c24ae4a894aef170fa0a2a, type: 3}
+  player: {fileID: 0}
+  maxFallSpeed: -50
