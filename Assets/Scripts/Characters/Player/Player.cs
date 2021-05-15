@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AttackLibrary;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Characters.Player
         [SerializeField] private GroundMetaBranch groundMeta;
         [SerializeField] private AirMetaBranch airMeta;
         [SerializeField] private List<Attack> attacks;
+
+        [SerializeField] private PlayerAttackLibrary _library;
 
         // Change up how inputs work?
             // Input is a struct?
@@ -49,8 +52,9 @@ namespace Characters.Player
             {
                 if (input.shouldAttack) // First priority
                 {
-                    var toAttack = attacks[input.lastAttackKey % attacks.Count];
-                    Set(toAttack, inAttack);
+                    Debug.Log(input.lastAttackKey);
+                    var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
+                    if (strikeValid) Set(toAttack, inAttack);
                 }
                 else if ((!airComplete) || (canJump && input.shouldJump)) // Second priority
                 {
@@ -67,10 +71,12 @@ namespace Characters.Player
                 {
                     if (((Attack) state).canSkip)
                     {
-                        var toAttack = attacks[input.lastAttackKey % attacks.Count];
+                        //var toAttack = attacks[input.lastAttackKey % attacks.Count];
                         //TODO: Implement Attack Library Object
                         // Create an AttackLibrary that just stores all the different possible attacks. Set(QueryAttackLibrary(state, index), true)
-                        Set(toAttack, true);
+                        //Set(toAttack, true);
+                        var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
+                        if (strikeValid) Set(toAttack, inAttack);
                     }
                 }
             }

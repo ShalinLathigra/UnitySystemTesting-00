@@ -140,6 +140,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17b2d40a84e57e4b94742c7c19eaa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6674380698510605278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5200175395853593442}
+  - component: {fileID: 1021745482457094144}
+  - component: {fileID: 5290757114830276769}
+  m_Layer: 2
+  m_Name: AttackLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5200175395853593442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674380698510605278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9126178813701438087}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021745482457094144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674380698510605278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff94dc724832e2549882a3a411ea5bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 0}
+  core: {fileID: 0}
+  sheet: {fileID: 11400000, guid: 2fc1bd86fb03c1544a81549205b7bbab, type: 2}
+  minSkipIndex: 3
+  maxSkipIndex: 4
+--- !u!114 &5290757114830276769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674380698510605278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b3296506704cf39fc6c6dc78164e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightChain:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  heavyChain:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &9126178813701438085
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +245,7 @@ Transform:
   - {fileID: 9126178813866421939}
   - {fileID: 9011430466195920358}
   - {fileID: 6492953014773550792}
+  - {fileID: 5200175395853593442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -270,14 +339,6 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: de8882a4-18d2-4564-80b0-90b3204c7f92
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 95d59717-029b-462c-aa2e-5ca9c04ff1df
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: f0293e4a-2b5b-4753-84b2-4678fbd38070
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -332,6 +393,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a7c2219c-de05-4eff-bec1-1eb31285c7a0
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 665d2708-193b-4031-ad59-97c375348e9f
+    m_ActionName: Player/Hit1[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dca02de5-312b-4c3a-8a0d-6692f270ed7f
+    m_ActionName: Player/Hit2[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24b41130-2cd6-4a6b-bd99-b3bf537d1d30
+    m_ActionName: Player/Hit3[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -387,6 +460,8 @@ MonoBehaviour:
   _airSO: {fileID: 11400000, guid: cce5d299d7e944d43b2c9cd7f30399aa, type: 2}
   groundMeta: {fileID: 7053489476094189896}
   airMeta: {fileID: 7270077056847996945}
+  attacks:
+  - {fileID: 1021745482457094144}
 --- !u!114 &7509204179916252858
 MonoBehaviour:
   m_ObjectHideFlags: 0

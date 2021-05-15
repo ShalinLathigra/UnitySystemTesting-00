@@ -29,6 +29,7 @@ namespace Pixel
         {
             props = _props;
             collisionActive = props.active;
+            enabled = props.active;
             box.size = props.size / ppu;
             
             box.offset = props.center / ppu;

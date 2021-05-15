@@ -10,6 +10,7 @@ namespace States
          * 
          */
 
+        public string Name;
         [SerializeField] private PixelSheet sheet;
         [SerializeField] private int minSkipIndex;
         [SerializeField] private int maxSkipIndex;

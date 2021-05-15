@@ -38,8 +38,6 @@ namespace Pixel
             PopulateBoxes();
 
             if (!sheetActive) return;
-            if (sheet.frames.Count > 0)
-                ApplyFrame(sheet.frames[_sheetIndex]);
         }
 
         private void PopulateBoxes()

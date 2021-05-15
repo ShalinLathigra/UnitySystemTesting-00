@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Run
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: -1827791990933645307, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -2582144906042459826, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 2911549044442082324, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -7886745963191761353, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -6564579147891151752, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: 1831487981076812021, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -3979799937391339100, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -5767477410892859443, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 660516398392159857, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -245242249642030193, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}

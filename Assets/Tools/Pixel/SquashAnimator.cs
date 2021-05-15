@@ -23,7 +23,7 @@ namespace Pixel
 
         private Transform _target;
         //TODO: Set Base Squash Stretch based on initial transform values. This allows scaling to happen
-        void Awake ()
+        private void Awake ()
         {
             _squashStretch = 0.0f;
             _callBack = value => this._squashStretch = value;

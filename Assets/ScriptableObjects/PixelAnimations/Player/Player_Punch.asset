@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Punch
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: -612601829202714837, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: 4037498999134786539, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 7409573153189658727, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -7282740389214335691, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 16, y: -16}
       size: {x: 96, y: 48}
@@ -45,7 +45,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0.076
-  - sprite: {fileID: -4337334636467898017, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -743006654614838314, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 32, y: -16}
       size: {x: 64, y: 32}
@@ -61,7 +61,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 5592175899156605380, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: 4608477832903955021, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 2747125564473529944, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: 3954280320372906931, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -93,5 +93,5 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  frameRate: 4
+  frameRate: 8
   loop: 0

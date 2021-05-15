@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Air
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: 1586260418399844024, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: 5004689267557438620, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 3570965184434437029, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -7197629064169272585, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 7203122108975314428, guid: 3f3c99b5457275f478651a0f66362359, type: 3}
+  - sprite: {fileID: -7438786630191902146, guid: c7b678d08d1ed904ab7d0e750b9316f5, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
