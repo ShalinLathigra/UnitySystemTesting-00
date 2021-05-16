@@ -10,17 +10,18 @@ namespace States
          * 
          */
 
-        public string Name;
+        public string Name => sheet.name;
         [SerializeField] private PixelSheet sheet;
-        [SerializeField] private int minSkipIndex;
-        [SerializeField] private int maxSkipIndex;
+        [SerializeField] private int minSkipIndex = -1;
+        [SerializeField] private int maxSkipIndex = -1;
+        public float Duration => sheet.frameCount * sheet.frameDuration;
 
         public bool canSkip => (core.pixel.PlayingSheet(sheet) && core.pixel.currentIndex >= minSkipIndex && core.pixel.currentIndex < maxSkipIndex);
 
         private void Awake()
         {
             minSkipIndex = Mathf.Min(minSkipIndex, sheet.frameCount - 1);   
-            maxSkipIndex = Mathf.Min(maxSkipIndex, sheet.frameCount - 1);   
+            maxSkipIndex = Mathf.Clamp(maxSkipIndex, minSkipIndex + 1, sheet.frameCount - 1);   
         }
 
         public override void Enter()

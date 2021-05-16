@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a49f544026c5ec488aab2e5dba01da0, type: 3}
-  m_Name: Player_Punch
+  m_Name: Player_Punch 3
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: 4037498999134786539, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -598767050623909285, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -7282740389214335691, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -3615645021907259260, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 16, y: -16}
       size: {x: 96, y: 48}
@@ -45,7 +45,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0.076
-  - sprite: {fileID: -743006654614838314, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -2716664283143091450, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 32, y: -16}
       size: {x: 64, y: 32}
@@ -61,7 +61,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 4608477832903955021, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 823186630379447208, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 3954280320372906931, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 4083616435451621416, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -93,5 +93,5 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  frameRate: 8
+  frameRate: 6
   loop: 0

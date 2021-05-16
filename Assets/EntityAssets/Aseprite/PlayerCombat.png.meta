@@ -50,6 +50,69 @@ TextureImporter:
   - first:
       213: -3397233793336834813
     second: PlayerCombat_15
+  - first:
+      213: -772215179193985105
+    second: PlayerCombat_16
+  - first:
+      213: 4880026556583502798
+    second: PlayerCombat_17
+  - first:
+      213: -7436482518942619043
+    second: PlayerCombat_18
+  - first:
+      213: 679173070686350398
+    second: PlayerCombat_19
+  - first:
+      213: -1540227682289187267
+    second: PlayerCombat_20
+  - first:
+      213: -993994315684588660
+    second: PlayerCombat_21
+  - first:
+      213: 2357259116433737134
+    second: PlayerCombat_22
+  - first:
+      213: 5109061460525323216
+    second: PlayerCombat_23
+  - first:
+      213: 2579773398054985155
+    second: PlayerCombat_24
+  - first:
+      213: -2182975592409758347
+    second: PlayerCombat_25
+  - first:
+      213: -7396625777274820570
+    second: PlayerCombat_26
+  - first:
+      213: -6584401653707110254
+    second: PlayerCombat_27
+  - first:
+      213: 7337877573848074549
+    second: PlayerCombat_28
+  - first:
+      213: 5111563775705986969
+    second: PlayerCombat_29
+  - first:
+      213: 1472188916799865257
+    second: PlayerCombat_30
+  - first:
+      213: 4095922810681511088
+    second: PlayerCombat_31
+  - first:
+      213: -8855870846193830367
+    second: PlayerCombat_32
+  - first:
+      213: -8606740331345660508
+    second: PlayerCombat_33
+  - first:
+      213: 6558225705380155433
+    second: PlayerCombat_34
+  - first:
+      213: 2239591694587681318
+    second: PlayerCombat_35
+  - first:
+      213: -7358924696103660656
+    second: PlayerCombat_36
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +176,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -125,7 +188,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -137,7 +200,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -155,7 +218,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 768
         width: 256
         height: 192
       alignment: 9
@@ -176,7 +239,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 768
         width: 256
         height: 192
       alignment: 9
@@ -197,7 +260,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 192
+        y: 768
         width: 256
         height: 192
       alignment: 9
@@ -218,7 +281,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 192
+        y: 768
         width: 256
         height: 192
       alignment: 9
@@ -239,7 +302,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 192
+        y: 768
         width: 256
         height: 192
       alignment: 9
@@ -260,7 +323,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 576
         width: 256
         height: 192
       alignment: 9
@@ -281,7 +344,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 576
         width: 256
         height: 192
       alignment: 9
@@ -302,7 +365,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 0
+        y: 576
         width: 256
         height: 192
       alignment: 9
@@ -323,7 +386,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
+        y: 576
         width: 256
         height: 192
       alignment: 9
@@ -344,7 +407,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
+        y: 576
         width: 256
         height: 192
       alignment: 9
@@ -364,8 +427,8 @@ TextureImporter:
       name: PlayerCombat_10
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
+        x: 0
+        y: 384
         width: 256
         height: 192
       alignment: 9
@@ -385,8 +448,8 @@ TextureImporter:
       name: PlayerCombat_11
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
+        x: 256
+        y: 384
         width: 256
         height: 192
       alignment: 9
@@ -406,8 +469,8 @@ TextureImporter:
       name: PlayerCombat_12
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 0
+        x: 512
+        y: 384
         width: 256
         height: 192
       alignment: 9
@@ -427,8 +490,8 @@ TextureImporter:
       name: PlayerCombat_13
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
+        x: 768
+        y: 384
         width: 256
         height: 192
       alignment: 9
@@ -448,8 +511,8 @@ TextureImporter:
       name: PlayerCombat_14
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 1024
+        y: 384
         width: 256
         height: 192
       alignment: 9
@@ -469,8 +532,8 @@ TextureImporter:
       name: PlayerCombat_15
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
+        x: 0
+        y: 192
         width: 256
         height: 192
       alignment: 9
@@ -482,6 +545,447 @@ TextureImporter:
       bones: []
       spriteID: 30584314dd99ad0d0800000000000000
       internalID: -3397233793336834813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa75af9c26a8845f0800000000000000
+      internalID: -772215179193985105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3e1a73c4659b340800000000000000
+      internalID: 4880026556583502798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ae5089c8e4cc890800000000000000
+      internalID: -7436482518942619043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c65433f48ec6900800000000000000
+      internalID: 679173070686350398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d360eeb551300aae0800000000000000
+      internalID: -1540227682289187267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_21
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83dcd0bf6f9432f0800000000000000
+      internalID: -993994315684588660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_22
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea585965daaa6b020800000000000000
+      internalID: 2357259116433737134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_23
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d31042545807e640800000000000000
+      internalID: 5109061460525323216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_24
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdd110cc323dc320800000000000000
+      internalID: 2579773398054985155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_25
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 192
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575811db34384b1e0800000000000000
+      internalID: -2182975592409758347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62869096b08e95990800000000000000
+      internalID: -7396625777274820570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2980b44e4918f94a0800000000000000
+      internalID: -6584401653707110254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539058296c065d560800000000000000
+      internalID: 7337877573848074549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997b5b9fb2cefe640800000000000000
+      internalID: 5111563775705986969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_30
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a18f1415044e6410800000000000000
+      internalID: 1472188916799865257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_31
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc471e5814a7d830800000000000000
+      internalID: 4095922810681511088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_32
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126f0e3c260a91580800000000000000
+      internalID: -8855870846193830367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_33
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a53d14e447be8880800000000000000
+      internalID: -8606740331345660508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_34
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9201506388f730b50800000000000000
+      internalID: 6558225705380155433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_35
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a50d5c7c0a41f10800000000000000
+      internalID: 2239591694587681318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCombat_36
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09354e76af8dfd990800000000000000
+      internalID: -7358924696103660656
       vertices: []
       indices: 
       edges: []

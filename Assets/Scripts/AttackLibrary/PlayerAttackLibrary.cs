@@ -18,12 +18,19 @@ namespace AttackLibrary
 
         // in this function, need to map provided inputs to attackLibrary outputs
 
+        [SerializeField] private float comboWindow = 0.5f;
+        private float attackDurationInSeconds;
+        private float timeOfLastAttackInput;
+
         private void Awake()
         {
             _library = new AttackLibrary();
             InitInputMap();
             InitChains();
             InitTransitions();
+
+            timeOfLastAttackInput = 0.0f;
+            attackDurationInSeconds = 0.0f;
         }
 
         private void InitInputMap()
@@ -50,8 +57,10 @@ namespace AttackLibrary
         {
             if (_inputMap.TryGetValue(input, out var key))
             {
-                if (_library.RequestAttack(key, out ret))
+                if (_library.RequestAttack(key, out ret, Time.time - timeOfLastAttackInput > attackDurationInSeconds + comboWindow))
                 {
+                    attackDurationInSeconds = ret != null ? ret.Duration : 0.0f;
+                    timeOfLastAttackInput = Time.time;
                     return true;
                 }
             }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a49f544026c5ec488aab2e5dba01da0, type: 3}
-  m_Name: Player_Kick
+  m_Name: Player_Kick 1
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: 9214899069555828017, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -3397233793336834813, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -5695943054931212741, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -772215179193985105, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0.076
-  - sprite: {fileID: -4649505934610785295, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 4880026556583502798, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -4846524999109851437, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -7436482518942619043, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 8594800403404993968, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 679173070686350398, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -598767050623909285, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -1540227682289187267, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 16, y: -32}
       size: {x: 64, y: 32}
@@ -109,7 +109,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0.1
-  - sprite: {fileID: -3615645021907259260, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -993994315684588660, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -2716664283143091450, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 2357259116433737134, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 823186630379447208, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 5109061460525323216, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: 4083616435451621416, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: 2579773398054985155, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
       squash: 0
       hitStop: 0
     appliedSquash: 0
-  - sprite: {fileID: -3397233793336834813, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
+  - sprite: {fileID: -2182975592409758347, guid: 65c96d1099e287e4790a66e15fa17cac, type: 3}
     hitProps:
       center: {x: 0, y: 0}
       size: {x: 0, y: 0}

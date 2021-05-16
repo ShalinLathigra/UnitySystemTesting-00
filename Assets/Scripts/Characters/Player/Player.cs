@@ -16,13 +16,6 @@ namespace Characters.Player
 
         [SerializeField] private PlayerAttackLibrary _library;
 
-        // Change up how inputs work?
-            // Input is a struct?
-            // core.input just tells the thing Should I do this stuff?
-            // The playerInputWrapper
-            
-            // Player's states are determined based on 
-
         public override bool canJump => Time.time - spatial.timeLastGrounded <= 0.25f;
         public override bool airComplete => (spatial.grounded && airMeta.complete);
         public override bool shouldJump => input.shouldJump;
@@ -52,7 +45,6 @@ namespace Characters.Player
             {
                 if (input.shouldAttack) // First priority
                 {
-                    Debug.Log(input.lastAttackKey);
                     var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
                     if (strikeValid) Set(toAttack, inAttack);
                 }
@@ -71,10 +63,6 @@ namespace Characters.Player
                 {
                     if (((Attack) state).canSkip)
                     {
-                        //var toAttack = attacks[input.lastAttackKey % attacks.Count];
-                        //TODO: Implement Attack Library Object
-                        // Create an AttackLibrary that just stores all the different possible attacks. Set(QueryAttackLibrary(state, index), true)
-                        //Set(toAttack, true);
                         var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
                         if (strikeValid) Set(toAttack, inAttack);
                     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using States;
-using UnityEngine;
 
 namespace AttackLibrary
 {
@@ -46,7 +45,6 @@ namespace AttackLibrary
 
             _activeAttackTransitions = EmptyTransitions;
             _activeInputTransitions = EmptyTransitions;
-
             chainIndex = 0;
         }
 
@@ -56,11 +54,11 @@ namespace AttackLibrary
                 _inputToChainDict[index] = chain;
         }
 
-        public bool RequestAttack(AttackInput input, [CanBeNull] out Attack nextAttack)
+        public bool RequestAttack(AttackInput input, [CanBeNull] out Attack nextAttack, bool comboOver)
         {
             bool valid;
             currentInput = input;
-            if (lastInput == AttackInput.Default || _activeChain.Count == 0)   // If not in an attack chain || last chain over 
+            if (lastInput == AttackInput.Default || _activeChain.Count == 0 || comboOver)   // If not in an attack chain || last chain over 
             {
                 valid = _inputToChainDict.TryGetValue(input, out var newList);
                 if (valid)
