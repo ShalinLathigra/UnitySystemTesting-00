@@ -31,7 +31,7 @@ namespace States
         public override void FixedDo()
         {
             _stateVelocity = new Vector2(
-                Engine.e.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
+                GameEngine.e.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
                 0.0f
             );
         
@@ -47,12 +47,7 @@ namespace States
             core.rb.velocity = math.lerp(core.rb.velocity, _stateVelocity.x * alignWithGround, coreMove.accelCurve.Evaluate(Time.time - startTime));
 
             // Completion Check
-            complete = !(Engine.e.input.shouldMove && core.spatial.grounded);
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
+            complete = !(GameEngine.e.input.shouldMove && core.spatial.grounded);
         }
     }
 }

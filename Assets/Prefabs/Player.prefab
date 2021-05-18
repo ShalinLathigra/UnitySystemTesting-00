@@ -257,13 +257,12 @@ MonoBehaviour:
   state: {fileID: 0}
   pixelAnimator: {fileID: 948059641157282691}
   squashAnimator: {fileID: 5536700713285823211}
-  inputWrapper: {fileID: 0}
   life: {fileID: 7509204179916252858}
   _moveSO: {fileID: 11400000, guid: 085a3c0e1cd836e408f750fa4d5a4642, type: 2}
   _airSO: {fileID: 11400000, guid: cce5d299d7e944d43b2c9cd7f30399aa, type: 2}
   groundMeta: {fileID: 7053489476094189896}
   airMeta: {fileID: 7270077056847996945}
-  library: {fileID: 0}
+  library: {fileID: 5290757114830276769}
 --- !u!114 &7509204179916252858
 MonoBehaviour:
   m_ObjectHideFlags: 0

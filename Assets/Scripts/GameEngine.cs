@@ -2,10 +2,10 @@ using Characters.Player;
 using Components;
 using UnityEngine;
 
-public class Engine : MonoBehaviour
+public class GameEngine : MonoBehaviour
 {
-    private static Engine _e;
-    public static Engine e => _e;
+    private static GameEngine _e;
+    public static GameEngine e => _e;
 
     public Player player;
 

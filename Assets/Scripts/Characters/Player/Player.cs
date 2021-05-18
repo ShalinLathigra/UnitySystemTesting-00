@@ -17,7 +17,7 @@ namespace Characters.Player
         [SerializeField] private PlayerAttackLibrary library;
 
         
-        private static InputWrapper input => Engine.e.input;
+        private static InputWrapper input => GameEngine.e.input;
         public override bool canJump => Time.time - spatial.timeLastGrounded <= 0.25f;
         public override bool airComplete => (spatial.grounded && airMeta.complete);
         public override bool shouldJump => input.shouldJump;

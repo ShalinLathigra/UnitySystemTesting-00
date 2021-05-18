@@ -23,11 +23,7 @@ namespace DialogueSystem
         // http://digitalnativestudios.com/textmeshpro/docs/rich-text/
         // file:///D:/UnityProjects/PrototypeProject/Assets/TextMesh%20Pro/Documentation/TextMesh%20Pro%20User%20Guide%202016.pdf
         // Example 23 for how to animate vertex attributes. but how do I localize it?
-        // Need to provide access to further sections through numbers? who knows. but this should be another aspect of the InputManager.
-            
-        /* TODO: Transition Input data out of PlayerInputWrapper, onto Engine.InputWrapper.
-         *  TODO: Then need to remove InputWrapper references from the BehaviourTree/Branch 
-         */
+           
         
         /* What is the first thing I should do?
          * 1. Add dialogue input buttons to the InputWrapper

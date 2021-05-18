@@ -35,7 +35,7 @@ namespace States
         public override void Do()
         {
             float velY = core.rb.velocity.y;
-            float min = Engine.e.maxFallSpeed; // -50
+            float min = GameEngine.e.maxFallSpeed; // -50
             float max = coreAir.maxJumpSpeed;   // 10
 
             int i = 0;
@@ -55,7 +55,7 @@ namespace States
         {
             core.rb.velocity = math.lerp(
                 core.rb.velocity, 
-                new Vector2(Engine.e.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
+                new Vector2(GameEngine.e.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
                 Mathf.Clamp(Time.time - startTime, 0.0f, 1.0f)
             );
 

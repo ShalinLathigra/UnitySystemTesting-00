@@ -7,7 +7,7 @@ using Pixel;
 namespace Characters.Base
 {
     [RequireComponent(typeof(SpatialAwareness))]
-    public abstract class Character : StateTree
+    public abstract class Character : StateTree, IAnimator
     {
 
         [SerializeField] protected PixelBoxAnimator pixelAnimator;

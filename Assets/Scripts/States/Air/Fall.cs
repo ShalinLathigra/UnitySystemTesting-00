@@ -31,7 +31,7 @@ namespace States
         {
             core.rb.velocity = new Vector2(
                 core.rb.velocity.x, 
-                Engine.e.maxFallSpeed * _fallCurve.Evaluate(Time.time - startTime)
+                GameEngine.e.maxFallSpeed * _fallCurve.Evaluate(Time.time - startTime)
             );
 
             if (core.spatial.grounded)
