@@ -1,4 +1,5 @@
 using BehaviourStateTree;
+using Characters.Base;
 using Easing;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ namespace States
                 jumpCurve.Evaluate(Time.time - startTime) * coreAir.maxJumpSpeed
             );
 
-            complete = (Time.time > (startTime + duration)) || (core.input.jumpCancelled && canEndJump);
+            complete = (Time.time > (startTime + duration)) || (Engine.e.input.jumpCancelled && canEndJump);
         }
 
         public override void Exit()

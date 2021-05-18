@@ -1,4 +1,5 @@
 using BehaviourStateTree;
+using Characters.Base;
 using UnityEngine;
 
 namespace States
@@ -16,7 +17,7 @@ namespace States
 
         public override void FixedDo()
         {
-            if (core.input.shouldMove)
+            if (Engine.e.input.shouldMove)
                 Set(move);
             else
                 Set(idle);

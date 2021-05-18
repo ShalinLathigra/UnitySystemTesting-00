@@ -1,4 +1,5 @@
 using BehaviourStateTree;
+using Characters.Base;
 using Pixel;
 using Unity.Mathematics;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace States
         {
             core.rb.velocity = math.lerp(
                 core.rb.velocity, 
-                new Vector2(core.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
+                new Vector2(Engine.e.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
                 Mathf.Clamp(Time.time - startTime, 0.0f, 1.0f)
             );
 

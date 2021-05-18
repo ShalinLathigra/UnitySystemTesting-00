@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AttackLibrary;
 using UnityEngine;
 using Characters.Base;
+using Components;
 using States;
 
 namespace Characters.Player
@@ -12,14 +13,14 @@ namespace Characters.Player
         [Header("Available States")]
         [SerializeField] private GroundMetaBranch groundMeta;
         [SerializeField] private AirMetaBranch airMeta;
-        [SerializeField] private List<Attack> attacks;
 
-        [SerializeField] private PlayerAttackLibrary _library;
+        [SerializeField] private PlayerAttackLibrary library;
 
+        
+        private static InputWrapper input => Engine.e.input;
         public override bool canJump => Time.time - spatial.timeLastGrounded <= 0.25f;
         public override bool airComplete => (spatial.grounded && airMeta.complete);
         public override bool shouldJump => input.shouldJump;
-
         public override bool blocked => inAttack && !state.complete;
         private bool inAttack => state.GetType() == typeof(Attack);
 
@@ -45,7 +46,7 @@ namespace Characters.Player
             {
                 if (input.shouldAttack) // First priority
                 {
-                    var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
+                    var strikeValid = library.RequestAttack(input.lastAttackKey, out var toAttack);
                     if (strikeValid) Set(toAttack, inAttack);
                 }
                 else if ((!airComplete) || (canJump && input.shouldJump)) // Second priority
@@ -63,7 +64,7 @@ namespace Characters.Player
                 {
                     if (((Attack) state).canSkip)
                     {
-                        var strikeValid = _library.RequestAttack(input.lastAttackKey, out var toAttack);
+                        var strikeValid = library.RequestAttack(input.lastAttackKey, out var toAttack);
                         if (strikeValid) Set(toAttack, inAttack);
                     }
                 }

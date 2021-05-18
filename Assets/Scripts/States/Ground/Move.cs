@@ -2,6 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 using BehaviourStateTree;
+using Characters.Base;
 using Pixel;
 
 /*
@@ -30,7 +31,7 @@ namespace States
         public override void FixedDo()
         {
             _stateVelocity = new Vector2(
-                core.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
+                Engine.e.input.horizontalInput * coreMove.maxSpeed * coreMove.accelCurve.Evaluate(Time.time - startTime), 
                 0.0f
             );
         
@@ -46,7 +47,7 @@ namespace States
             core.rb.velocity = math.lerp(core.rb.velocity, _stateVelocity.x * alignWithGround, coreMove.accelCurve.Evaluate(Time.time - startTime));
 
             // Completion Check
-            complete = !(core.input.shouldMove && core.spatial.grounded);
+            complete = !(Engine.e.input.shouldMove && core.spatial.grounded);
         }
 
         public override void Exit()

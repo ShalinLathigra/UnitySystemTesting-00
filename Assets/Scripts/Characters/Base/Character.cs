@@ -12,14 +12,12 @@ namespace Characters.Base
 
         [SerializeField] protected PixelBoxAnimator pixelAnimator;
         [SerializeField] protected SquashAnimator squashAnimator;
-        [SerializeField] protected InputWrapper inputWrapper;
         [SerializeField] protected Life life;
         public SpatialAwareness spatial { get; private set; }
         public new AudioClipPlayer audio { get; private set; }
 
         public PixelBoxAnimator pixel => pixelAnimator;
         public SquashAnimator squash => squashAnimator;
-        public InputWrapper input => inputWrapper;
         public BoxCollider2D box => spatial.box;
         public Rigidbody2D rb => spatial.rb;
         public virtual bool blocked { get; set; }

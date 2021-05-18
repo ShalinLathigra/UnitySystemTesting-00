@@ -19,10 +19,9 @@ namespace Pixel
         
         private float _squashStretch;
 
-        private readonly float BaseSquashStretch = 1.0f;
+        private const float BaseSquashStretch = 1.0f;
 
         private Transform _target;
-        //TODO: Set Base Squash Stretch based on initial transform values. This allows scaling to happen
         private void Awake ()
         {
             _squashStretch = 0.0f;
