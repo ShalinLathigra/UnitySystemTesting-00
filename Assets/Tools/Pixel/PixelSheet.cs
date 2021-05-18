@@ -9,7 +9,7 @@ namespace Pixel
     {
         public static PixelSheet CreateInstance()
         {
-            PixelSheet sheet = ScriptableObject.CreateInstance<PixelSheet>();
+            var sheet = ScriptableObject.CreateInstance<PixelSheet>();
             sheet.Init();
             return sheet;
         }

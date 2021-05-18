@@ -1,4 +1,4 @@
-using System;
+using DialogueSystem;
 using Pixel;
 using States;
 using UnityEditor;
@@ -68,6 +68,30 @@ namespace Editor
                     asset.GetInstanceID(),
                     ScriptableObject.CreateInstance<EndNameEdit>(),
                     string.Format("{0}.asset", "PixelSheet"),
+                    AssetPreview.GetMiniThumbnail(asset),
+                    null
+                );
+            }
+            GUILayout.FlexibleSpace();
+            GUILayout.Label("Dialogue System");
+            if (GUILayout.Button("DialogueTree"))
+            {
+                var asset = DialogueTree.CreateInstance();
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
+                    asset.GetInstanceID(),
+                    ScriptableObject.CreateInstance<EndNameEdit>(),
+                    string.Format("{0}.asset", "DialogueTree"),
+                    AssetPreview.GetMiniThumbnail(asset),
+                    null
+                );
+            }
+            if (GUILayout.Button("DialogueObject"))
+            {
+                var asset = DialogueObject.CreateInstance();
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
+                    asset.GetInstanceID(),
+                    ScriptableObject.CreateInstance<EndNameEdit>(),
+                    string.Format("{0}.asset", "DialogueObject"),
                     AssetPreview.GetMiniThumbnail(asset),
                     null
                 );

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Characters.Player;
-using Pixel;
+using Components;
 using UnityEngine;
 
 public class Engine : MonoBehaviour
@@ -12,6 +10,9 @@ public class Engine : MonoBehaviour
     public Player player;
 
     public float maxFallSpeed = -50.0f;
+
+    [SerializeField] private InputWrapper inputWrapper;
+    public InputWrapper input => inputWrapper;
 
     private void Awake() {
         if (_e != null && _e != this)
