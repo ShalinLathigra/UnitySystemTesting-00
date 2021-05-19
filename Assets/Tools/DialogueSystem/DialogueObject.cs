@@ -17,17 +17,22 @@ namespace DialogueSystem
 
         protected void Init()
         {
-            text = "";
-            squashStretch = 0;
-            sheet = null;
+            _text = "";
+            _squashStretch = 0;
+            _sheet = null;
             children = new List<DialogueObject>();
         }
         [TextArea]
-        [SerializeField] private string text;
+        [SerializeField] private string _text;
         [Range(-0.5f, 0.5f)]
-        [SerializeField] private float squashStretch;
-        [SerializeField] private PixelSheet sheet;
+        [SerializeField] private float _squashStretch;
+        [SerializeField] private PixelSheet _sheet;
+
+        public virtual string text => _text;
+        public virtual float squashStretch => _squashStretch;
+        public virtual PixelSheet sheet => _sheet;
         
+
         public List<DialogueObject> children;
     }
 }

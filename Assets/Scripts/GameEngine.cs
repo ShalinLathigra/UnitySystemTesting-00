@@ -11,9 +11,6 @@ public class GameEngine : MonoBehaviour
 
     public float maxFallSpeed = -50.0f;
 
-    [SerializeField] private InputWrapper inputWrapper;
-    public InputWrapper input => inputWrapper;
-
     private void Awake() {
         if (_e != null && _e != this)
             Destroy (this.gameObject);

@@ -18,13 +18,13 @@ namespace DialogueSystem
             head = this;
         }
         public DialogueObject head;
-        
+
         // <color=#RRGGBBAA></color>
         // http://digitalnativestudios.com/textmeshpro/docs/rich-text/
         // file:///D:/UnityProjects/PrototypeProject/Assets/TextMesh%20Pro/Documentation/TextMesh%20Pro%20User%20Guide%202016.pdf
         // Example 23 for how to animate vertex attributes. but how do I localize it?
-           
-        
+
+
         /* What is the first thing I should do?
          * 1. Add dialogue input buttons to the InputWrapper
          * 2. add a trigger + Dialogue Processor gameObject to the window

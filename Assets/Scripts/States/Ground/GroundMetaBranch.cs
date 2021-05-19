@@ -17,7 +17,7 @@ namespace States
 
         public override void FixedDo()
         {
-            if (GameEngine.e.input.shouldMove)
+            if (InputManager.input.shouldMove)
                 Set(move);
             else
                 Set(idle);

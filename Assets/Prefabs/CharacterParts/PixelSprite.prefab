@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6036473705310903923
@@ -103,6 +103,8 @@ MonoBehaviour:
   squash: {fileID: 1313850512660438811}
   sheet: {fileID: 0}
   playing: 0
+  _sheetIndex: 0
+  pixelHandler: {fileID: 0}
   hitBox: {fileID: 3146075968106271832}
   hurtBox: {fileID: 6309289755721326504}
 --- !u!114 &1313850512660438811
@@ -130,8 +132,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1245688382146738368}
-  boxType: 0
+  type: 0
   id: 
+  collisionActive: 0
+  props:
+    center: {x: 0, y: 0}
+    size: {x: 0, y: 0}
+    value: 0
+    active: 0
+    squash: 0
+    hitStop: 0
 --- !u!114 &6309289755721326504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 2735041794840174146}
-  boxType: 0
+  type: 0
   id: 
+  collisionActive: 0
+  props:
+    center: {x: 0, y: 0}
+    size: {x: 0, y: 0}
+    value: 0
+    active: 0
+    squash: 0
+    hitStop: 0
 --- !u!61 &2735041794840174146
 BoxCollider2D:
   m_ObjectHideFlags: 0

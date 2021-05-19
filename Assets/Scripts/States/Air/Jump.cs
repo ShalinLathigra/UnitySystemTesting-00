@@ -30,7 +30,7 @@ namespace States
                 jumpCurve.Evaluate(Time.time - startTime) * coreAir.maxJumpSpeed
             );
 
-            complete = (Time.time > (startTime + duration)) || (GameEngine.e.input.jumpCancelled && canEndJump);
+            complete = (Time.time > (startTime + duration)) || (InputManager.input.jumpCancelled && canEndJump);
         }
 
         public override void Exit()

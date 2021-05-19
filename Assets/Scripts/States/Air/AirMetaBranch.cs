@@ -55,7 +55,7 @@ namespace States
         {
             core.rb.velocity = math.lerp(
                 core.rb.velocity, 
-                new Vector2(GameEngine.e.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
+                new Vector2(InputManager.input.horizontalInput * coreAir.maxAirSpeed, 0.0f),
                 Mathf.Clamp(Time.time - startTime, 0.0f, 1.0f)
             );
 
