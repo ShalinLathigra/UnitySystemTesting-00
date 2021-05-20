@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Pixel
 {
-    public abstract class PixelHitHandler : MonoBehaviour
+    public class PixelHitHandler : MonoBehaviour
     {
-        public abstract void HandlePixelHit(PixelHitProps _props);
+        public virtual void HandlePixelHit(PixelHitProps _props) => Debug.Log(_props);
     }
 }

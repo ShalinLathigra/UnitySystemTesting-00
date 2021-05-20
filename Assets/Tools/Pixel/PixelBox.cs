@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Pixel
 {
@@ -47,9 +45,7 @@ namespace Pixel
             otherBox = other.gameObject.GetComponent<PixelBox>();
             if (otherBox == null) return false;
             if (!collisionActive || !otherBox.collisionActive) return false;
-            if (otherBox.type == type) return false;
-
-            return true;
+            return otherBox.type != type;
         }
 
         private static void ResolveCollisionStart(PixelBox hurt, PixelBox hit)
@@ -65,8 +61,8 @@ namespace Pixel
                 _message: $"Hurting: {hurt.id}"
                 );
             
-            hurt.handle?.HandlePixelHit(hurtProps);
-            hit.handle?.HandlePixelHit(hitProps);
+            if (hurt.owner.hittable) hurt.handle.HandlePixelHit(hurtProps);
+            if (hit.owner.hittable) hit.handle.HandlePixelHit(hitProps);
         }
     }
 }

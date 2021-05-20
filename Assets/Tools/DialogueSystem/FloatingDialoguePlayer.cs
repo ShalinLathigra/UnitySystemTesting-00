@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DialogueSystem
 {
-    public class DialoguePlayer : MonoBehaviour
+    public class FloatingDialoguePlayer : MonoBehaviour
     {
         private TMPTextScroll _scroll;
         [SerializeField] private List<DialogueObject> options;

@@ -25,7 +25,7 @@ namespace Pixel
         private void Awake ()
         {
             _squashStretch = 0.0f;
-            _callBack = value => this._squashStretch = value;
+            _callBack = value => _squashStretch = value;
             _simple = new SimpleAnimation(_callBack);
 
             _target = GetComponent<Transform>();
@@ -51,7 +51,7 @@ namespace Pixel
             _simple.Step();
         }
 
-        public void AnimateReset(float duration = 1.0f, EasingFunction.Ease ease = EasingFunction.Ease.EaseOutElastic)
+        private void AnimateReset(float duration = 1.0f, EasingFunction.Ease ease = EasingFunction.Ease.EaseOutElastic)
         {
             _simple = new SimpleAnimation(
                 _callBack, 

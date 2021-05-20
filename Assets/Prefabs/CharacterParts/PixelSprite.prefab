@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6309289755721326504}
   - component: {fileID: 2735041794840174146}
   - component: {fileID: 1245688382146738368}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: PixelSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
