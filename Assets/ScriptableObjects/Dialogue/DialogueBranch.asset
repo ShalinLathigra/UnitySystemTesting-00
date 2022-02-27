@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf8e6ff01ed18d438e20a41252d9018, type: 3}
-  m_Name: DialogueTree
+  m_Script: {fileID: 11500000, guid: b8761817ad0043f0986d08db03fbe06a, type: 3}
+  m_Name: DialogueBranch
   m_EditorClassIdentifier: 
-  text: '<color="red">hello</color>
-
-'
-  squashStretch: 0
-  sheet: {fileID: 0}
-  children:
-  - {fileID: 11400000, guid: 8d4c5e2e5053ed647a9c88f225cef0aa, type: 2}
-  current: {fileID: 0}
+  speaker: {fileID: 0}
+  text: Helllooooooo!
+  options: []

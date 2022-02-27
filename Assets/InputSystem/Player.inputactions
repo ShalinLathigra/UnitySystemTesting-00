@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dialogue0",
+                    "type": "Button",
+                    "id": "a387cd0b-312d-44be-8ed3-2702eb538978",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -277,6 +285,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dialogue3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60636534-4cca-4639-8339-d46de3f40388",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

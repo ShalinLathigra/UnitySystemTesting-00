@@ -10,6 +10,7 @@ public class GameEngine : MonoBehaviour
     public Player player;
 
     public float maxFallSpeed = -50.0f;
+    public float timeScale;
 
     private void Awake() {
         if (_e != null && _e != this)

@@ -6,7 +6,7 @@ namespace DialogueSystem
     public class FloatingDialoguePlayer : MonoBehaviour
     {
         private TMPTextScroll _scroll;
-        [SerializeField] private List<DialogueObject> options;
+        [SerializeField] private List<FloatingDialogueObject> options;
         [SerializeField] private bool random;
 
         private void Awake()

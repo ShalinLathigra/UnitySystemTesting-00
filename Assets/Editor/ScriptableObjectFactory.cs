@@ -74,24 +74,24 @@ namespace Editor
             }
             GUILayout.FlexibleSpace();
             GUILayout.Label("Dialogue System");
-            if (GUILayout.Button("DialogueTree"))
+            if (GUILayout.Button("DialogueBranch"))
             {
-                var asset = DialogueTree.CreateInstance();
+                var asset = DialogueBranch.CreateInstance();
                 ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
                     asset.GetInstanceID(),
                     ScriptableObject.CreateInstance<EndNameEdit>(),
-                    string.Format("{0}.asset", "DialogueTree"),
+                    string.Format("{0}.asset", "DialogueBranch"),
                     AssetPreview.GetMiniThumbnail(asset),
                     null
                 );
             }
-            if (GUILayout.Button("DialogueObject"))
+            if (GUILayout.Button("FDialogueObject"))
             {
-                var asset = DialogueObject.CreateInstance();
+                var asset = FloatingDialogueObject.CreateInstance();
                 ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
                     asset.GetInstanceID(),
                     ScriptableObject.CreateInstance<EndNameEdit>(),
-                    string.Format("{0}.asset", "DialogueObject"),
+                    string.Format("{0}.asset", "FDialogueObject"),
                     AssetPreview.GetMiniThumbnail(asset),
                     null
                 );

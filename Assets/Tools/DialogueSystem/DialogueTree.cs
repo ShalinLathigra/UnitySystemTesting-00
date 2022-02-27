@@ -1,23 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace DialogueSystem
 {
-    [CreateAssetMenu(menuName = "DialogueTree", fileName = "DialogueTree", order = 0)]
-    public class DialogueTree : DialogueObject
+    [CreateAssetMenu(menuName = "PrototypeProject/Dialogue/DialogueTree", fileName = "DialogueTree", order = 0)]
+    public class DialogueTree : ScriptableObject
     {
-        public new static DialogueTree CreateInstance()
+        public static DialogueTree CreateInstance()
         {
             var tree = ScriptableObject.CreateInstance<DialogueTree>();
             tree.Init();
             return tree;
         }
-        private new void Init()
+        private void Init()
         {
-            base.Init();
-            head = this;
         }
-        public DialogueObject head;
 
         // <color=#RRGGBBAA></color>
         // http://digitalnativestudios.com/textmeshpro/docs/rich-text/

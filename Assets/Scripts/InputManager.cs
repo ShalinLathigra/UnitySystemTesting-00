@@ -16,17 +16,19 @@ public class InputManager : InputWrapper
 
     public delegate void AdvanceDialogue(int index);
     public AdvanceDialogue advanceDialogue;
+    public AdvanceDialogue exitDialogue;
 
     [SerializeField] protected float jumpBufferTime;
     private float _timeOfLastJumpInput = -100.0f;
 
     [SerializeField] protected float attackBufferTime;
     private float _timeOfLastAttackInput = -100.0f;
-        
-    public override bool shouldMove => _shouldMove;
 
-    public override bool shouldJump => _timeOfLastJumpInput + jumpBufferTime >= Time.time;
-    public override bool shouldAttack => _timeOfLastAttackInput + attackBufferTime >= Time.time;
+    public bool canMove = true;
+    public override bool shouldMove => _shouldMove && canMove;
+
+    public override bool shouldJump => _timeOfLastJumpInput + jumpBufferTime >= Time.time && canMove;
+    public override bool shouldAttack => _timeOfLastAttackInput + attackBufferTime >= Time.time && canMove;
         
     public override bool jumpCancelled => _jumpCancelled;
     public override int lastAttackKey => _lastAttackKey;
@@ -34,9 +36,7 @@ public class InputManager : InputWrapper
     public override float horizontalInput => directionalInput.x;
     public override float verticalInput => directionalInput.y;
 
-    
 
-        
     private void Awake() {
         if (input != null && input != this)
             Destroy (this.gameObject);
@@ -104,5 +104,10 @@ public class InputManager : InputWrapper
     {
         if (!context.started) return;
         advanceDialogue?.Invoke(2);
+    }
+    public void Dialogue0(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        exitDialogue?.Invoke(-1);
     }
 }

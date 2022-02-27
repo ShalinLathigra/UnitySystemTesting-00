@@ -18,6 +18,11 @@ namespace  Easing
 
         public bool complete => (_progress >= _duration) || _duration == 0.0f;
 
+        private bool _timeScaled;
+
+        // lastTime = (if scaled time) : Time.time
+        // lastTime = (if unscaled time) Time.unscaledTime
+        // progress += () - lastTime
 
         public SimpleAnimation
         (
@@ -26,10 +31,12 @@ namespace  Easing
             float to = 0.0f, 
             float duration = 0.0f, 
             EasingFunction.Ease _ease = EasingFunction.Ease.Linear,
-            float progress = 0.0f
+            float progress = 0.0f,
+            bool timeScaled = true
         )
         {
             _setOutput = setOutput;
+            _timeScaled = timeScaled;
             _from = from;
             _to = to;
             _duration = duration;
@@ -37,27 +44,27 @@ namespace  Easing
 
             _function = EasingFunction.GetEasingFunction(_ease);
 
+            _timeScaled = timeScaled;
+
             CalcCurrent();
         }
 
-        public float Step()
+        public void Step()
         {
-            return Step(Time.deltaTime);
+            Step((_timeScaled) ? Time.deltaTime : Time.unscaledDeltaTime);
         }
-        
-        public float Step(float delta)
+
+        private void Step(float delta)
         {
             _progress = math.clamp(_progress + delta, 0.0f, _duration);
             CalcCurrent();
             _setOutput.Invoke(current);
-            return current;
         }
         
 
-        private float CalcCurrent()
+        private void CalcCurrent()
         {
             current = _function.Invoke(_from, _to, _progress / _duration);
-            return current;
         }
     }
 }

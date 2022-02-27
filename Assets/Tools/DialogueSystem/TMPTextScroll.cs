@@ -6,10 +6,10 @@ namespace DialogueSystem
 {
     public class TMPTextScroll : MonoBehaviour
     {
-        private AnimationCurve displacement => DialogueEngine.d.displacement;
-        private AnimationCurve alpha => DialogueEngine.d.alpha;
-        private AnimationCurve words => DialogueEngine.d.words;
-        private float minDuration => DialogueEngine.d.minDuration;
+        private static AnimationCurve displacement => DialogueEngine.d.floatPrefs.displacement;
+        private static AnimationCurve alpha => DialogueEngine.d.floatPrefs.alpha;
+        private static AnimationCurve words => DialogueEngine.d.floatPrefs.words;
+        private static float minDuration => DialogueEngine.d.floatPrefs.minDuration;
 
         private TextMeshPro _tmp;
         private float _startTime;
